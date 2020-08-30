@@ -4,21 +4,21 @@ import java.util.*;
 
 public class Connector {
 	private String name;
-	public List<String> roles = new ArrayList<String>();
-
-	public List<String> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
-	}
+	private List<String> roles = new ArrayList<String>();
 
 	public String getName() {
 		return name;
 	}
 
+	public List<String> getRoles() {
+		return roles;
+	}
+
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 }

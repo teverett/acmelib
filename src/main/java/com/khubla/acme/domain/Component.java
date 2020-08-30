@@ -10,11 +10,11 @@ public class Component {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public Map<String, Port> getPorts() {
 		return ports;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

@@ -91,6 +91,7 @@ public class SystemStructureListener extends AbstractListener {
 		if (null != ctx.attachmentsDeclaration()) {
 			final AttachmentsDeclarationListener attachmentsDeclarationListener = new AttachmentsDeclarationListener();
 			attachmentsDeclarationListener.enterAttachmentsDeclaration(ctx.attachmentsDeclaration());
+			system.setAttachments(attachmentsDeclarationListener.attachments);
 		}
 		/*
 		 * rep

@@ -7,17 +7,22 @@ public class System {
 	private final List<String> names = new ArrayList<String>();
 	private final Map<String, Component> components = new HashMap<String, Component>();
 	private final Map<String, Connector> connectors = new HashMap<String, Connector>();
-
-	public Map<String, Connector> getConnectors() {
-		return connectors;
-	}
+	private Attachments attachments;
 
 	public System() {
 		super();
 	}
 
+	public Attachments getAttachments() {
+		return attachments;
+	}
+
 	public Map<String, Component> getComponents() {
 		return components;
+	}
+
+	public Map<String, Connector> getConnectors() {
+		return connectors;
 	}
 
 	public String getName() {
@@ -26,6 +31,10 @@ public class System {
 
 	public List<String> getNames() {
 		return names;
+	}
+
+	public void setAttachments(Attachments attachments) {
+		this.attachments = attachments;
 	}
 
 	public void setName(String name) {

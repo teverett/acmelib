@@ -5,6 +5,9 @@ acmelib
 
 A Java library for reading [acme](http://www.cs.cmu.edu/~acme/) [ADL](https://en.wikipedia.org/wiki/Architecture_description_language) files.
 
+You can read the acme white paper Acme: *Architectural Description of
+Component-Based Systems* [here](https://acme.able.cs.cmu.edu/pubs/show.php?id=162).
+
 acmelib uses the [ANTLR4 acme grammar](https://github.com/antlr/grammars-v4/tree/master/acme).
 
 Maven Coordinates

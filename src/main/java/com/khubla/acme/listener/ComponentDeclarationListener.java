@@ -26,10 +26,10 @@ public class ComponentDeclarationListener extends AbstractListener {
 			}
 		}
 		/*
-		 * dezcription
+		 * description
 		 */
 		if (null != ctx.parse_ComponentDescription()) {
-			final Parse_ComponentDescriptionListener parse_ComponentDescriptionListener = new Parse_ComponentDescriptionListener();
+			final Parse_ComponentDescriptionListener parse_ComponentDescriptionListener = new Parse_ComponentDescriptionListener(component);
 			parse_ComponentDescriptionListener.enterParse_ComponentDescription(ctx.parse_ComponentDescription());
 		}
 	}

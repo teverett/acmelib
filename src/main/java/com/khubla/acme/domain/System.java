@@ -6,6 +6,11 @@ public class System {
 	private String name;
 	private final List<String> names = new ArrayList<String>();
 	private final Map<String, Component> components = new HashMap<String, Component>();
+	private final Map<String, Connector> connectors = new HashMap<String, Connector>();
+
+	public Map<String, Connector> getConnectors() {
+		return connectors;
+	}
 
 	public System() {
 		super();

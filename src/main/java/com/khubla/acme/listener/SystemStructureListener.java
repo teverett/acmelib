@@ -41,6 +41,7 @@ public class SystemStructureListener extends AbstractListener {
 		if (null != ctx.connectorDeclaration()) {
 			final ConnectorDeclarationListener connectorDeclarationListener = new ConnectorDeclarationListener();
 			connectorDeclarationListener.enterConnectorDeclaration(ctx.connectorDeclaration());
+			system.getConnectors().put(connectorDeclarationListener.connector.getName(), connectorDeclarationListener.connector);
 		}
 		/*
 		 * connectors block
@@ -112,6 +113,5 @@ public class SystemStructureListener extends AbstractListener {
 			final Parse_DesignRuleListener parse_DesignRuleListener = new Parse_DesignRuleListener();
 			parse_DesignRuleListener.enterParse_DesignRule(ctx.parse_DesignRule());
 		}
-		throw new RuntimeException("Not Implemented");
 	}
 }

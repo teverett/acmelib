@@ -49,6 +49,7 @@ public class Parse_ComponentDescriptionListener extends AbstractListener {
 			for (final PropertiesBlockContext propertiesBlockContext : ctx.propertiesBlock()) {
 				final PropertiesBlockListener propertiesBlockListener = new PropertiesBlockListener();
 				propertiesBlockListener.enterPropertiesBlock(propertiesBlockContext);
+				component.setProperties(propertiesBlockListener.properties);
 			}
 		}
 		/*

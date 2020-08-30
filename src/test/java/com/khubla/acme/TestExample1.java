@@ -9,11 +9,11 @@ import org.junit.*;
 import com.khubla.acme.domain.*;
 import com.khubla.acme.domain.System;
 
-public class TestDesign {
+public class TestExample1 {
 	@Test
 	public void testExample1() {
 		try {
-			final Design design = ACMEReader.parseDesign(TestDesign.class.getResourceAsStream("/example1.txt"));
+			final Design design = ACMEReader.parseDesign(TestExample1.class.getResourceAsStream("/example1.txt"));
 			assertNotNull(design);
 			/*
 			 * systems

@@ -7,6 +7,7 @@ import java.util.*;
 import org.junit.*;
 
 import com.khubla.acme.domain.*;
+import com.khubla.acme.domain.Properties;
 import com.khubla.acme.domain.System;
 
 public class TestExample2 {
@@ -46,6 +47,9 @@ public class TestExample2 {
 			final Port port1 = ports1.values().iterator().next();
 			assertNotNull(port1);
 			assertTrue(port1.getName().compareTo("receive-request") == 0);
+			final Properties properties1 = component1.getProperties();
+			assertNotNull(properties1);
+			assertTrue(properties1.getProperties().size() == 3);
 			/*
 			 * component2
 			 */
@@ -58,6 +62,9 @@ public class TestExample2 {
 			final Port port2 = ports2.values().iterator().next();
 			assertNotNull(port2);
 			assertTrue(port2.getName().compareTo("send-request") == 0);
+			final Properties properties2 = component2.getProperties();
+			assertNotNull(properties2);
+			assertTrue(properties2.getProperties().size() == 3);
 			/*
 			 * connectors
 			 */
@@ -73,6 +80,9 @@ public class TestExample2 {
 			final List<String> roles = connector1.getRoles();
 			assertNotNull(roles);
 			assertTrue(roles.size() == 2);
+			final Properties properties3 = connector1.getProperties();
+			assertNotNull(properties3);
+			assertTrue(properties3.getProperties().size() == 3);
 			/*
 			 * attachments
 			 */

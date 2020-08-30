@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Connector {
 	private String name;
-	private List<String> roles = new ArrayList<String>();
+	private List<Role> roles = new ArrayList<Role>();
 	private Properties properties;
 
 	public String getName() {
@@ -15,7 +15,7 @@ public class Connector {
 		return properties;
 	}
 
-	public List<String> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
@@ -27,7 +27,7 @@ public class Connector {
 		this.properties = properties;
 	}
 
-	public void setRoles(List<String> roles) {
+	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
 }

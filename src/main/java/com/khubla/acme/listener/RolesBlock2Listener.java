@@ -4,9 +4,10 @@ import java.util.*;
 
 import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
+import com.khubla.acme.domain.*;
 
 public class RolesBlock2Listener extends AbstractListener {
-	public List<String> names = new ArrayList<String>();
+	public List<Role> roles = new ArrayList<Role>();
 
 	@Override
 	public void enterRolesBlock2(acmeParser.RolesBlock2Context ctx) {
@@ -14,7 +15,7 @@ public class RolesBlock2Listener extends AbstractListener {
 			for (final Lookup_RoleTypeByNameContext lookup_RoleTypeByNameContext : ctx.lookup_RoleTypeByName()) {
 				final Lookup_RoleTypeByNameListener lookup_RoleTypeByNameListener = new Lookup_RoleTypeByNameListener();
 				lookup_RoleTypeByNameListener.enterLookup_RoleTypeByName(lookup_RoleTypeByNameContext);
-				names.addAll(lookup_RoleTypeByNameListener.names);
+				roles.addAll(lookup_RoleTypeByNameListener.roles);
 			}
 		}
 	}

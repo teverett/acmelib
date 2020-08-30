@@ -85,7 +85,7 @@ public class Parse_ConnectorDescriptionListener extends AbstractListener {
 			for (final RolesBlock2Context rolesBlock2Context : ctx.rolesBlock2()) {
 				final RolesBlock2Listener rolesBlock2Listener = new RolesBlock2Listener();
 				rolesBlock2Listener.enterRolesBlock2(rolesBlock2Context);
-				connector.setRoles(rolesBlock2Listener.names);
+				connector.setRoles(rolesBlock2Listener.roles);
 			}
 		}
 		/*

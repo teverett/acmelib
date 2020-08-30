@@ -70,7 +70,7 @@ public class TestExample1 {
 			final Connector connector1 = connectors.values().iterator().next();
 			assertNotNull(connector1);
 			assertTrue(connector1.getName().compareTo("rpc") == 0);
-			final List<String> roles = connector1.getRoles();
+			final List<Role> roles = connector1.getRoles();
 			assertNotNull(roles);
 			assertTrue(roles.size() == 2);
 			/*

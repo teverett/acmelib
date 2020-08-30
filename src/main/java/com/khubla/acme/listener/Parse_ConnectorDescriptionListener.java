@@ -30,6 +30,7 @@ public class Parse_ConnectorDescriptionListener extends AbstractListener {
 			for (final PropertiesBlockContext propertiesBlockContext : ctx.propertiesBlock()) {
 				final PropertiesBlockListener propertiesBlockListener = new PropertiesBlockListener();
 				propertiesBlockListener.enterPropertiesBlock(propertiesBlockContext);
+				connector.setProperties(propertiesBlockListener.properties);
 			}
 		}
 		/*

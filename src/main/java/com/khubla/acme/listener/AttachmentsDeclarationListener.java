@@ -39,6 +39,7 @@ public class AttachmentsDeclarationListener extends AbstractListener {
 			for (final PropertiesBlockContext propertiesBlockContext : ctx.propertiesBlock()) {
 				final PropertiesBlockListener propertiesBlockListener = new PropertiesBlockListener();
 				propertiesBlockListener.enterPropertiesBlock(propertiesBlockContext);
+				attachments.setProperties(propertiesBlockListener.properties);
 			}
 		}
 		/*

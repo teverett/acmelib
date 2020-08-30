@@ -9,7 +9,6 @@ import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class AttachmentsDeclarationListener extends AbstractListener {
-	public List<String> names = new ArrayList<String>();
 	public Attachments attachments;
 
 	@Override
@@ -18,10 +17,20 @@ public class AttachmentsDeclarationListener extends AbstractListener {
 		/*
 		 * identifiers
 		 */
+		final List<String> names = new ArrayList<String>();
 		if (null != ctx.IDENTIFIER()) {
 			for (final TerminalNode terminalNode : ctx.IDENTIFIER()) {
 				names.add(terminalNode.getText());
 			}
+		}
+		final int attachmentsSize = names.size() / 4;
+		for (int i = 0; i < attachmentsSize; i++) {
+			final Attachment attachment = new Attachment();
+			attachment.setFromComponent(names.get(i * 4));
+			attachment.setFromPort(names.get((i * 4) + 1));
+			attachment.setToConnector(names.get((i * 4) + 2));
+			attachment.setToRole(names.get((i * 4) + 3));
+			attachments.getAttachments().add(attachment);
 		}
 		/*
 		 * properties blocks

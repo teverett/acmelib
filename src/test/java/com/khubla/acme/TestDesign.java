@@ -77,6 +77,23 @@ public class TestDesign {
 			 * attachments
 			 */
 			assertNotNull(system.getAttachments());
+			final List<Attachment> attachments = system.getAttachments().getAttachments();
+			assertNotNull(attachments);
+			assertTrue(attachments.size() == 2);
+			/*
+			 * 1
+			 */
+			assertTrue(attachments.get(0).getFromComponent().compareTo("client") == 0);
+			assertTrue(attachments.get(0).getFromPort().compareTo("send-request") == 0);
+			assertTrue(attachments.get(0).getToConnector().compareTo("rpc") == 0);
+			assertTrue(attachments.get(0).getToRole().compareTo("caller") == 0);
+			/*
+			 * 2
+			 */
+			assertTrue(attachments.get(1).getFromComponent().compareTo("server") == 0);
+			assertTrue(attachments.get(1).getFromPort().compareTo("receive-request") == 0);
+			assertTrue(attachments.get(1).getToConnector().compareTo("rpc") == 0);
+			assertTrue(attachments.get(1).getToRole().compareTo("callee") == 0);
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}

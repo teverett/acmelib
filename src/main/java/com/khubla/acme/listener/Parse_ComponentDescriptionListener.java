@@ -40,6 +40,7 @@ public class Parse_ComponentDescriptionListener extends AbstractListener {
 			for (final PortsBlockContext portsBlockContext : ctx.portsBlock()) {
 				final PortsBlockListener portsBlockListener = new PortsBlockListener();
 				portsBlockListener.enterPortsBlock(portsBlockContext);
+				component.getPorts().putAll(portsBlockListener.ports);
 			}
 		}
 		/*

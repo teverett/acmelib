@@ -5,7 +5,19 @@ import java.util.*;
 public class Connector {
 	private String name;
 	private List<Role> roles = new ArrayList<Role>();
+	private List<DesignRule> designRules = new ArrayList<DesignRule>();
 	private Properties properties;
+
+	public void addProperty(Property property) {
+		if (null == properties) {
+			properties = new Properties();
+		}
+		properties.getProperties().add(property);
+	}
+
+	public List<DesignRule> getDesignRules() {
+		return designRules;
+	}
 
 	public String getName() {
 		return name;
@@ -17,6 +29,10 @@ public class Connector {
 
 	public List<Role> getRoles() {
 		return roles;
+	}
+
+	public void setDesignRules(List<DesignRule> designRules) {
+		this.designRules = designRules;
 	}
 
 	public void setName(String name) {

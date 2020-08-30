@@ -40,6 +40,7 @@ public class Parse_ConnectorDescriptionListener extends AbstractListener {
 			for (final PropertyDeclarationContext propertyDeclarationContext : ctx.propertyDeclaration()) {
 				final PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
 				propertyDeclarationListener.enterPropertyDeclaration(propertyDeclarationContext);
+				connector.addProperty(propertyDeclarationListener.property);
 			}
 		}
 		/*
@@ -58,6 +59,7 @@ public class Parse_ConnectorDescriptionListener extends AbstractListener {
 			for (final Parse_DesignRuleContext parse_DesignRuleContext : ctx.parse_DesignRule()) {
 				final Parse_DesignRuleListener parse_DesignRuleListener = new Parse_DesignRuleListener();
 				parse_DesignRuleListener.enterParse_DesignRule(parse_DesignRuleContext);
+				connector.getDesignRules().add(parse_DesignRuleListener.designRule);
 			}
 		}
 		/*
@@ -76,6 +78,7 @@ public class Parse_ConnectorDescriptionListener extends AbstractListener {
 			for (final RolesBlock1Context rolesBlock1Context : ctx.rolesBlock1()) {
 				final RolesBlock1Listener rolesBlock1Listener = new RolesBlock1Listener();
 				rolesBlock1Listener.enterRolesBlock1(rolesBlock1Context);
+				connector.setRoles(rolesBlock1Listener.roles);
 			}
 		}
 		/*

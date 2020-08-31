@@ -69,6 +69,7 @@ public class Parse_ComponentDescriptionListener extends AbstractListener {
 			for (final RepresentationDeclarationContext representationDeclarationContext : ctx.representationDeclaration()) {
 				final RepresentationDeclarationListener representationDeclarationListener = new RepresentationDeclarationListener();
 				representationDeclarationListener.enterRepresentationDeclaration(representationDeclarationContext);
+				component.getRepresentations().put(representationDeclarationListener.representation.getName(), representationDeclarationListener.representation);
 			}
 		}
 		/*

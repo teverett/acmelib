@@ -27,6 +27,21 @@ public class TestExample4 {
 			final System system = systems.values().iterator().next();
 			assertNotNull(system);
 			assertTrue(system.getName().compareTo("simpleCS") == 0);
+			/*
+			 * component
+			 */
+			assertTrue(system.getComponents().size() == 1);
+			final Component component = system.getComponents().values().iterator().next();
+			assertNotNull(component);
+			assertTrue(component.getPorts().size() == 1);
+			assertTrue(component.getRepresentations().size() == 1);
+			/*
+			 * representation
+			 */
+			final Representation representation = component.getRepresentations().values().iterator().next();
+			assertNotNull(representation);
+			assertTrue(representation.getBindings().getBindings().size() == 1);
+			assertTrue(representation.getSystems().size() == 1);
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}

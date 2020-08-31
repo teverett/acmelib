@@ -5,7 +5,15 @@ import java.util.*;
 public class Component {
 	private String name;
 	private final Map<String, Port> ports = new HashMap<String, Port>();
+	private final Map<String, Representation> representations = new HashMap<String, Representation>();
 	private Properties properties;
+
+	public void addProperty(Property property) {
+		if (null == properties) {
+			properties = new Properties();
+		}
+		properties.getProperties().add(property);
+	}
 
 	public String getName() {
 		return name;
@@ -17,6 +25,10 @@ public class Component {
 
 	public Properties getProperties() {
 		return properties;
+	}
+
+	public Map<String, Representation> getRepresentations() {
+		return representations;
 	}
 
 	public void setName(String name) {

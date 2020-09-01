@@ -8,7 +8,10 @@ A Java library for reading [acme](http://www.cs.cmu.edu/~acme/) [ADL](https://en
 You can read the acme white paper Acme: *Architectural Description of
 Component-Based Systems* [here](https://acme.able.cs.cmu.edu/pubs/show.php?id=162).
 
-acmelib uses the [ANTLR4 acme grammar](https://github.com/antlr/grammars-v4/tree/master/acme).
+Examples
+-------------------
+
+Examples in `examples/cmu/` are the property of CMU and licensed under the Eclipse license.
 
 Maven Coordinates
 -------------------

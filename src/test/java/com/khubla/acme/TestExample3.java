@@ -11,6 +11,7 @@ import com.khubla.acme.domain.System;
 
 public class TestExample3 {
 	@Test
+	@Ignore
 	public void testExample1() {
 		try {
 			final Design design = ACMEReader.parseDesign(TestExample3.class.getResourceAsStream("/example3.txt"));

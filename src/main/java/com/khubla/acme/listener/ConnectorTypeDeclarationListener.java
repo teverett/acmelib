@@ -4,18 +4,18 @@ import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class ConnectorTypeDeclarationListener extends AbstractListener {
-	public Type type;
+	public ConnectorType connectorType;
 
 	@Override
 	public void enterAcmeConnectorTypeDeclaration(AcmeConnectorTypeDeclarationContext ctx) {
 		/*
 		 * name
 		 */
-		type = new Type();
+		connectorType = new ConnectorType();
 		if (null != ctx.identifier()) {
 			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
-			type.setName(identifierListener.identifier);
+			connectorType.setName(identifierListener.identifier);
 		}
 		/*
 		 * body

@@ -4,18 +4,18 @@ import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class ComponentTypeDeclarationListener extends AbstractListener {
-	public Type type;
+	public ComponentType componentType;
 
 	@Override
 	public void enterAcmeComponentTypeDeclaration(AcmeComponentTypeDeclarationContext ctx) {
 		/*
 		 * name
 		 */
-		type = new Type();
+		componentType = new ComponentType();
 		if (null != ctx.identifier()) {
 			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
-			type.setName(identifierListener.identifier);
+			componentType.setName(identifierListener.identifier);
 		}
 		/*
 		 * body

@@ -21,7 +21,7 @@ public class FamilyDeclarationListener extends AbstractListener {
 		 * body
 		 */
 		if (null != ctx.acmeFamilyBody()) {
-			final FamilyBodyListener familyBodyListener = new FamilyBodyListener();
+			final FamilyBodyListener familyBodyListener = new FamilyBodyListener(family);
 			familyBodyListener.enterAcmeFamilyBody(ctx.acmeFamilyBody());
 		}
 		/*

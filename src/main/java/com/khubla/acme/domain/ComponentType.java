@@ -1,6 +1,6 @@
 package com.khubla.acme.domain;
 
-public class Connector {
+public class ComponentType {
 	private String name;
 
 	public String getName() {

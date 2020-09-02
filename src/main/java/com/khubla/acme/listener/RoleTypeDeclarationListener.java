@@ -4,14 +4,14 @@ import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class RoleTypeDeclarationListener extends AbstractListener {
-	public Type type;
+	public ComponentType type;
 
 	@Override
 	public void enterAcmeRoleTypeDeclaration(AcmeRoleTypeDeclarationContext ctx) {
 		/*
 		 * name
 		 */
-		type = new Type();
+		type = new ComponentType();
 		if (null != ctx.identifier()) {
 			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());

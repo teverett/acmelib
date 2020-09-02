@@ -17,13 +17,13 @@ public class PropertyValueDeclarationListener extends AbstractListener {
 			throw new RuntimeException("Not Implemented");
 		} else if (ctx.FALSE() != null) {
 			throw new RuntimeException("Not Implemented");
+		} else if (ctx.acmePropertyRecord() != null) {
+			throw new RuntimeException("Not Implemented");
+		} else if (ctx.acmePropertySequence() != null) {
+			throw new RuntimeException("Not Implemented");
+		} else if (ctx.acmePropertySet() != null) {
+			throw new RuntimeException("Not Implemented");
 		} else if (ctx.enumidentifier() != null) {
-			value = ctx.IDENTIFIER().getText();
-		} else if (ctx.acmeSetValue() != null) {
-			throw new RuntimeException("Not Implemented");
-		} else if (ctx.acmeRecordValue() != null) {
-			throw new RuntimeException("Not Implemented");
-		} else if (ctx.acmeSequenceValue() != null) {
 			throw new RuntimeException("Not Implemented");
 		}
 	}

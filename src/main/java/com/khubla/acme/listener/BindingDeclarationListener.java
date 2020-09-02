@@ -1,9 +1,5 @@
 package com.khubla.acme.listener;
 
-import java.util.*;
-
-import org.antlr.v4.runtime.tree.*;
-
 import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
@@ -13,38 +9,27 @@ public class BindingDeclarationListener extends AbstractListener {
 	@Override
 	public void enterAcmeBindingDeclaration(AcmeBindingDeclarationContext ctx) {
 		/*
-		 * names
+		 * ref
 		 */
-		final List<String> names = new ArrayList<String>();
-		if (null != ctx.IDENTIFIER()) {
-			for (final TerminalNode terminalNode : ctx.IDENTIFIER()) {
-				names.add(terminalNode.getText());
+		if (null != ctx.acmeInstanceRef()) {
+			for (AcmeInstanceRefContext acmeInstanceRefContext : ctx.acmeInstanceRef()) {
+				InstanceRefListener instanceRefListener = new InstanceRefListener();
+				instanceRefListener.enterAcmeInstanceRef(acmeInstanceRefContext);
 			}
 		}
-		binding = new Binding();
-		binding.setFromComponent(names.get(0));
-		binding.setFromPort(names.get(1));
-		binding.setToConnector(names.get(2));
-		binding.setToRole(names.get(3));
 		/*
-		 * property decl
+		 * prop
 		 */
-		if (null != ctx.propertyDeclaration()) {
-			for (final PropertyDeclarationContext propertyDeclarationContext : ctx.propertyDeclaration()) {
-				final PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
-				propertyDeclarationListener.enterPropertyDeclaration(propertyDeclarationContext);
-				binding.addProperty(propertyDeclarationListener.property);
-			}
+		if (null != ctx.acmePropertyDeclaration()) {
+			PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
+			propertyDeclarationListener.enterAcmePropertyDeclaration(ctx.acmePropertyDeclaration());
 		}
 		/*
 		 * prop block
 		 */
-		if (null != ctx.propertiesBlock()) {
-			for (final PropertiesBlockContext propertiesBlockContext : ctx.propertiesBlock()) {
-				final PropertiesBlockListener propertiesBlockListener = new PropertiesBlockListener();
-				propertiesBlockListener.enterPropertiesBlock(propertiesBlockContext);
-				binding.setProperties(propertiesBlockListener.properties);
-			}
+		if (null != ctx.acmePropertyBlock()) {
+			PropertyBlockListener propertyBlockListener = new PropertyBlockListener();
+			propertyBlockListener.enterAcmePropertyBlock(ctx.acmePropertyBlock());
 		}
 	}
 }

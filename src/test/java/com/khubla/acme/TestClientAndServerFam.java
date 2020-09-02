@@ -6,11 +6,11 @@ import org.junit.*;
 
 import com.khubla.acme.domain.*;
 
-public class TestTest1 {
+public class TestClientAndServerFam {
 	@Test
 	public void test11() {
 		try {
-			final Unit unit = ACMEReader.parseUnit(TestTest1.class.getResourceAsStream("/cmu/test1.acmetest"));
+			final Unit unit = ACMEReader.parseUnit(TestClientAndServerFam.class.getResourceAsStream("/cmu/ClientAndServerFam.acmetest"));
 			assertNotNull(unit);
 		} catch (final Exception e) {
 			e.printStackTrace();

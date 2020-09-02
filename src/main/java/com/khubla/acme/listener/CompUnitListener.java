@@ -1,37 +1,46 @@
 package com.khubla.acme.listener;
 
-import java.util.*;
-
 import com.khubla.acme.acmeParser.*;
+import com.khubla.acme.domain.*;
 
 public class CompUnitListener extends AbstractListener {
+	public Unit unit;
+
 	@Override
 	public void enterAcmeCompUnit(AcmeCompUnitContext ctx) {
+		unit = new Unit();
 		/*
 		 * imports
 		 */
-		final List<String> imports = new ArrayList<String>();
 		if (null != ctx.acmeImportDeclaration()) {
 			for (final AcmeImportDeclarationContext acmeImportDeclarationContext : ctx.acmeImportDeclaration()) {
 				final ImportDeclarationListener importDeclarationListener = new ImportDeclarationListener();
 				importDeclarationListener.enterAcmeImportDeclaration(acmeImportDeclarationContext);
-				imports.add(importDeclarationListener.name);
+				unit.addImport(new Import(importDeclarationListener.name));
 			}
 		}
+		/*
+		 * data
+		 */
 		if (null != ctx.acmeSystemDeclaration()) {
 			for (final AcmeSystemDeclarationContext acmeSystemDeclarationContext : ctx.acmeSystemDeclaration()) {
 				final SystemDeclarationListener systemDeclarationListener = new SystemDeclarationListener();
 				systemDeclarationListener.enterAcmeSystemDeclaration(acmeSystemDeclarationContext);
+				unit.addSysten(systemDeclarationListener.system);
 			}
-		} else if (null != ctx.acmeFamilyDeclaration()) {
+		}
+		if (null != ctx.acmeFamilyDeclaration()) {
 			for (final AcmeFamilyDeclarationContext acmeFamilyDeclarationContext : ctx.acmeFamilyDeclaration()) {
 				final FamilyDeclarationListener familyDeclarationListener = new FamilyDeclarationListener();
 				familyDeclarationListener.enterAcmeFamilyDeclaration(acmeFamilyDeclarationContext);
+				unit.addFamily(familyDeclarationListener.family);
 			}
-		} else if (null != ctx.acmeDesignDeclaration()) {
+		}
+		if (null != ctx.acmeDesignDeclaration()) {
 			for (final AcmeDesignDeclarationContext acmeDesignDeclarationContext : ctx.acmeDesignDeclaration()) {
 				final DesignDeclarationListener designDeclarationListener = new DesignDeclarationListener();
 				designDeclarationListener.enterAcmeDesignDeclaration(acmeDesignDeclarationContext);
+				unit.addDesign(designDeclarationListener.design);
 			}
 		}
 	}

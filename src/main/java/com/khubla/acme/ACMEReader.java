@@ -23,11 +23,10 @@ public class ACMEReader {
 		return new acmeParser(tokenStream);
 	}
 
-	public static Design parseDesign(InputStream inputStream) throws IOException {
+	public static Unit parseUnit(InputStream inputStream) throws IOException {
 		final acmeParser parser = parse(inputStream);
 		final CompUnitListener compUnitListener = new CompUnitListener();
 		parser.acmeCompUnit().enterRule(compUnitListener);
-		// TODO
-		return null;
+		return compUnitListener.unit;
 	}
 }

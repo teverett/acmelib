@@ -12,24 +12,35 @@ public class RoleDeclarationListener extends AbstractListener {
 		/*
 		 * name
 		 */
-		if (null != ctx.IDENTIFIER()) {
-			role.setName(ctx.IDENTIFIER().getText());
+		if (null != ctx.identifier()) {
+			IdentifierListener identifierListener = new IdentifierListener();
+			identifierListener.enterIdentifier(ctx.identifier());
+			role.setName(identifierListener.identifier);
 		}
 		/*
-		 * type
+		 * ref
 		 */
-		if (null != ctx.lookup_RoleTypeByName()) {
-			for (final Lookup_RoleTypeByNameContext lookup_RoleTypeByNameContext : ctx.lookup_RoleTypeByName()) {
-				final Lookup_RoleTypeByNameListener lookup_RoleTypeByNameListener = new Lookup_RoleTypeByNameListener();
-				lookup_RoleTypeByNameListener.enterLookup_RoleTypeByName(lookup_RoleTypeByNameContext);
+		if (null != ctx.acmeRoleTypeRef()) {
+			for (AcmeRoleTypeRefContext acmeRoleTypeRefContext : ctx.acmeRoleTypeRef()) {
+				RoleTypeRefListener roleTypeRefListener = new RoleTypeRefListener();
+				roleTypeRefListener.enterAcmeRoleTypeRef(acmeRoleTypeRefContext);
 			}
 		}
 		/*
-		 * Parse_RoleDescriptionListener
+		 * body
 		 */
-		if (null != ctx.parse_RoleDescription()) {
-			final Parse_RoleDescriptionListener parse_RoleDescriptionListener = new Parse_RoleDescriptionListener();
-			parse_RoleDescriptionListener.enterParse_RoleDescription(ctx.parse_RoleDescription());
+		if (null != ctx.acmeRoleBody()) {
+			RoleBodyListener roleBodyListener = new RoleBodyListener();
+			roleBodyListener.enterAcmeRoleBody(ctx.acmeRoleBody());
+		}
+		/*
+		 * instantiated red
+		 */
+		if (null != ctx.acmeRoleInstantiatedTypeRef()) {
+			for (AcmeRoleInstantiatedTypeRefContext acmeRoleInstantiatedTypeRefContext : ctx.acmeRoleInstantiatedTypeRef()) {
+				RoleInstantiatedTypeRefListener roleInstantiatedTypeRefListener = new RoleInstantiatedTypeRefListener();
+				roleInstantiatedTypeRefListener.enterAcmeRoleInstantiatedTypeRef(acmeRoleInstantiatedTypeRefContext);
+			}
 		}
 	}
 }

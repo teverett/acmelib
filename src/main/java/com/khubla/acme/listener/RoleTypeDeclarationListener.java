@@ -12,15 +12,26 @@ public class RoleTypeDeclarationListener extends AbstractListener {
 		 * name
 		 */
 		type = new Type();
-		if (null != ctx.IDENTIFIER()) {
-			type.setName(ctx.IDENTIFIER().getText());
+		if (null != ctx.identifier()) {
+			IdentifierListener identifierListener = new IdentifierListener();
+			identifierListener.enterIdentifier(ctx.identifier());
+			type.setName(identifierListener.identifier);
 		}
 		/*
-		 * desc
+		 * body
 		 */
-		if (null != ctx.parse_RoleDescription()) {
-			final Parse_RoleDescriptionListener parse_RoleDescriptionListener = new Parse_RoleDescriptionListener();
-			parse_RoleDescriptionListener.enterParse_RoleDescription(ctx.parse_RoleDescription());
+		if (null != ctx.acmeRoleBody()) {
+			RoleBodyListener roleBodyListener = new RoleBodyListener();
+			roleBodyListener.enterAcmeRoleBody(ctx.acmeRoleBody());
+		}
+		/*
+		 * type ref
+		 */
+		if (null != ctx.acmeRoleTypeRef()) {
+			for (AcmeRoleTypeRefContext acmeRoleTypeRefContext : ctx.acmeRoleTypeRef()) {
+				RoleTypeRefListener roleTypeRefListener = new RoleTypeRefListener();
+				roleTypeRefListener.enterAcmeRoleTypeRef(acmeRoleTypeRefContext);
+			}
 		}
 	}
 }

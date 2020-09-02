@@ -1,38 +1,66 @@
 package com.khubla.acme.listener;
 
-import java.util.*;
-
-import com.khubla.acme.acmeParser.*;
-import com.khubla.acme.domain.System;;
+import com.khubla.acme.acmeParser.*;;
 
 public class SystemBodyListener extends AbstractListener {
-	public List<String> names = new ArrayList<String>();
-	private final System system;
-
-	public SystemBodyListener(System system) {
+	public SystemBodyListener() {
 		super();
-		this.system = system;
 	}
 
 	@Override
 	public void enterAcmeSystemBody(AcmeSystemBodyContext ctx) {
 		/*
-		 * names
+		 * property
 		 */
-		if (null != ctx.lookup_SystemTypeByName()) {
-			for (final Lookup_SystemTypeByNameContext lookup_SystemTypeByNameContext : ctx.lookup_SystemTypeByName()) {
-				final Lookup_SystemTypeByNameListener lookup_SystemTypeByNameListener = new Lookup_SystemTypeByNameListener();
-				lookup_SystemTypeByNameListener.enterLookup_SystemTypeByName(lookup_SystemTypeByNameContext);
-				names.add(lookup_SystemTypeByNameListener.name);
+		if (null != ctx.acmePropertyDeclaration()) {
+			for (AcmePropertyDeclarationContext acmePropertyDeclarationContext : ctx.acmePropertyDeclaration()) {
+				PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
+				propertyDeclarationListener.enterAcmePropertyDeclaration(acmePropertyDeclarationContext);
 			}
 		}
 		/*
-		 * structure
+		 * component
 		 */
-		if (null != ctx.systemStructure()) {
-			for (final SystemStructureContext systemStructureContext : ctx.systemStructure()) {
-				final SystemStructureListener systemStructureListener = new SystemStructureListener(system);
-				systemStructureListener.enterSystemStructure(systemStructureContext);
+		if (null != ctx.acmeComponentDeclaration()) {
+			for (AcmeComponentDeclarationContext acmeComponentDeclarationContext : ctx.acmeComponentDeclaration()) {
+				ComponentDeclarationListener componentDeclarationListener = new ComponentDeclarationListener();
+				componentDeclarationListener.enterAcmeComponentDeclaration(acmeComponentDeclarationContext);
+			}
+		}
+		/*
+		 * connector
+		 */
+		if (null != ctx.acmeConnectorDeclaration()) {
+			for (AcmeConnectorDeclarationContext acmeConnectorDeclarationContext : ctx.acmeConnectorDeclaration()) {
+				ConnectorDeclarationListener connectorDeclarationListener = new ConnectorDeclarationListener();
+				connectorDeclarationListener.enterAcmeConnectorDeclaration(acmeConnectorDeclarationContext);
+			}
+		}
+		/*
+		 * attachment
+		 */
+		if (null != ctx.acmeAttachmentDeclaration()) {
+			for (AcmeAttachmentDeclarationContext acmeAttachmentDeclarationContext : ctx.acmeAttachmentDeclaration()) {
+				AttachmentsDeclarationListener attachmentsDeclarationListener = new AttachmentsDeclarationListener();
+				attachmentsDeclarationListener.enterAcmeAttachmentDeclaration(acmeAttachmentDeclarationContext);
+			}
+		}
+		/*
+		 * group
+		 */
+		if (null != ctx.acmeGroupDeclaration()) {
+			for (AcmeGroupDeclarationContext acmeGroupDeclarationContext : ctx.acmeGroupDeclaration()) {
+				GroupDeclarationListener groupDeclarationListener = new GroupDeclarationListener();
+				groupDeclarationListener.enterAcmeGroupDeclaration(acmeGroupDeclarationContext);
+			}
+		}
+		/*
+		 * rule
+		 */
+		if (null != ctx.designRule()) {
+			for (DesignRuleContext designRuleContext : ctx.designRule()) {
+				DesignRuleListener designRuleListener = new DesignRuleListener();
+				designRuleListener.enterDesignRule(designRuleContext);
 			}
 		}
 	}

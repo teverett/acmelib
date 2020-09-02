@@ -17,7 +17,7 @@ public class PropertyValueDeclarationListener extends AbstractListener {
 			throw new RuntimeException("Not Implemented");
 		} else if (ctx.FALSE() != null) {
 			throw new RuntimeException("Not Implemented");
-		} else if (ctx.IDENTIFIER() != null) {
+		} else if (ctx.enumidentifier() != null) {
 			value = ctx.IDENTIFIER().getText();
 		} else if (ctx.acmeSetValue() != null) {
 			throw new RuntimeException("Not Implemented");

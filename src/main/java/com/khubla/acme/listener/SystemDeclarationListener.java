@@ -18,21 +18,29 @@ public class SystemDeclarationListener extends AbstractListener {
 			system.setName(identifierListener.identifier);
 		}
 		/*
-		 * names
+		 * family
 		 */
-		if (null != ctx.lookup_SystemTypeByName()) {
-			for (final Lookup_SystemTypeByNameContext lookup_SystemTypeByNameContext : ctx.lookup_SystemTypeByName()) {
-				final Lookup_SystemTypeByNameListener lookup_SystemTypeByNameListener = new Lookup_SystemTypeByNameListener();
-				lookup_SystemTypeByNameListener.enterLookup_SystemTypeByName(lookup_SystemTypeByNameContext);
-				system.getNames().add(lookup_SystemTypeByNameListener.name);
+		if (null != ctx.acmeFamilyRef()) {
+			for (AcmeFamilyRefContext AcmeFamilyRefContext : ctx.acmeFamilyRef()) {
+				FamilyRefListener familyRefListener = new FamilyRefListener();
+				familyRefListener.enterAcmeFamilyRef(AcmeFamilyRefContext);
 			}
 		}
 		/*
 		 * body
 		 */
-		if (null != ctx.systemBody()) {
-			final SystemBodyListener systemBodyListener = new SystemBodyListener(system);
-			systemBodyListener.enterSystemBody(ctx.systemBody());
+		if (null != ctx.acmeSystemBody()) {
+			SystemBodyListener systemBodyListener = new SystemBodyListener();
+			systemBodyListener.enterAcmeSystemBody(ctx.acmeSystemBody());
+		}
+		/*
+		 * instantation re
+		 */
+		if (null != ctx.acmeFamilyInstantiationRef()) {
+			for (AcmeFamilyInstantiationRefContext acmeFamilyInstantiationRefContext : ctx.acmeFamilyInstantiationRef()) {
+				FamilyInstantiationRefListener familyInstantiationRefListener = new FamilyInstantiationRefListener();
+				familyInstantiationRefListener.enterAcmeFamilyInstantiationRef(acmeFamilyInstantiationRefContext);
+			}
 		}
 	}
 }

@@ -12,24 +12,26 @@ public class ConnectorDeclarationListener extends AbstractListener {
 		/*
 		 * name
 		 */
-		if (null != ctx.IDENTIFIER()) {
-			connector.setName(ctx.IDENTIFIER().getText());
+		if (null != ctx.identifier()) {
+			IdentifierListener identifierListener = new IdentifierListener();
+			identifierListener.enterIdentifier(ctx.identifier());
+			connector.setName(identifierListener.identifier);
 		}
 		/*
-		 * types
+		 * ref
 		 */
-		if (null != ctx.lookup_ConnectorTypeByName()) {
-			for (final Lookup_ConnectorTypeByNameContext lookup_ConnectorTypeByNameContext : ctx.lookup_ConnectorTypeByName()) {
-				final Lookup_ConnectorTypeByNameListener lookup_ConnectorTypeByNameListener = new Lookup_ConnectorTypeByNameListener();
-				lookup_ConnectorTypeByNameListener.enterLookup_ConnectorTypeByName(lookup_ConnectorTypeByNameContext);
+		if (null != ctx.acmeConnectorTypeRef()) {
+			for (AcmeConnectorTypeRefContext acmeConnectorTypeRefContext : ctx.acmeConnectorTypeRef()) {
+				ConnectorTypeRefListener connectorTypeRefListener = new ConnectorTypeRefListener();
+				connectorTypeRefListener.enterAcmeConnectorTypeRef(acmeConnectorTypeRefContext);
 			}
 		}
 		/*
-		 * desc
+		 * body
 		 */
-		if (null != ctx.parse_ConnectorDescription()) {
-			final Parse_ConnectorDescriptionListener parse_ConnectorDescriptionListener = new Parse_ConnectorDescriptionListener(connector);
-			parse_ConnectorDescriptionListener.enterParse_ConnectorDescription(ctx.parse_ConnectorDescription());
+		if (null != ctx.acmeConnectorBody()) {
+			ConnectorBodyListener connectorBodyListener = new ConnectorBodyListener();
+			connectorBodyListener.enterAcmeConnectorBody(ctx.acmeConnectorBody());
 		}
 	}
 }

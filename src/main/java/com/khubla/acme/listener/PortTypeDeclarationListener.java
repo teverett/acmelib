@@ -1,27 +1,37 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
+import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class PortTypeDeclarationListener extends AbstractListener {
 	public Type type;
 
 	@Override
-	public void enterPortTypeDeclaration(acmeParser.PortTypeDeclarationContext ctx) {
+	public void enterAcmePortTypeDeclaration(AcmePortTypeDeclarationContext ctx) {
 		/*
 		 * name
 		 */
 		type = new Type();
-		if (null != ctx.IDENTIFIER()) {
-			type.setName(ctx.IDENTIFIER().getText());
+		if (null != ctx.identifier()) {
+			IdentifierListener identifierListener = new IdentifierListener();
+			identifierListener.enterIdentifier(ctx.identifier());
+			type.setName(identifierListener.identifier);
 		}
 		/*
-		 * desc
+		 * body
 		 */
-		if (null != ctx.parse_PortDescription()) {
-			final Port port = new Port();
-			final Parse_PortDescriptionListener parse_PortDescriptionListener = new Parse_PortDescriptionListener(port);
-			parse_PortDescriptionListener.enterParse_PortDescription(ctx.parse_PortDescription());
+		if (null != ctx.acmePortBody()) {
+			PortBodyListener portBodyListener = new PortBodyListener();
+			portBodyListener.enterAcmePortBody(ctx.acmePortBody());
+		}
+		/*
+		 * ref
+		 */
+		if (null != ctx.acmePortTypeRef()) {
+			for (AcmePortTypeRefContext acmePortTypeRefContext : ctx.acmePortTypeRef()) {
+				PortTypeRefListener portTypeRefListener = new PortTypeRefListener();
+				portTypeRefListener.enterAcmePortTypeRef(acmePortTypeRefContext);
+			}
 		}
 	}
 }

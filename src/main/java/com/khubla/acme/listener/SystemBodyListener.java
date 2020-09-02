@@ -2,7 +2,6 @@ package com.khubla.acme.listener;
 
 import java.util.*;
 
-import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.System;;
 
@@ -16,7 +15,7 @@ public class SystemBodyListener extends AbstractListener {
 	}
 
 	@Override
-	public void enterSystemBody(acmeParser.SystemBodyContext ctx) {
+	public void enterAcmeSystemBody(AcmeSystemBodyContext ctx) {
 		/*
 		 * names
 		 */

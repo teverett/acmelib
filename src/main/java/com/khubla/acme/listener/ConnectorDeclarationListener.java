@@ -1,6 +1,5 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
@@ -8,7 +7,7 @@ public class ConnectorDeclarationListener extends AbstractListener {
 	public Connector connector;
 
 	@Override
-	public void enterConnectorDeclaration(acmeParser.ConnectorDeclarationContext ctx) {
+	public void enterAcmeConnectorDeclaration(AcmeConnectorDeclarationContext ctx) {
 		connector = new Connector();
 		/*
 		 * name

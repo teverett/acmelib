@@ -25,8 +25,8 @@ public class ACMEReader {
 
 	public static Design parseDesign(InputStream inputStream) throws IOException {
 		final acmeParser parser = parse(inputStream);
-		final DesignListener designListener = new DesignListener();
-		parser.design().enterRule(designListener);
+		final DesignDeclarationListener designListener = new DesignDeclarationListener();
+		parser.acmeCompUnit().enterRule(designListener);
 		return designListener.getDesign();
 	}
 }

@@ -5,21 +5,27 @@ import com.khubla.acme.*;
 public class PrimitiveExpressionListener extends AbstractListener {
 	@Override
 	public void enterPrimitiveExpression(acmeParser.PrimitiveExpressionContext ctx) {
-		if (null != ctx.designRuleExpression()) {
-			final DesignRuleExpressionListener designRuleExpressionListener = new DesignRuleExpressionListener();
-			designRuleExpressionListener.enterDesignRuleExpression(ctx.designRuleExpression());
-		}
 		if (null != ctx.literalConstant()) {
 			final LiteralConstantListener literalConstantListener = new LiteralConstantListener();
 			literalConstantListener.enterLiteralConstant(ctx.literalConstant());
-		}
-		if (null != ctx.reference()) {
+		} else if (null != ctx.reference()) {
 			final ReferenceListener referenceListener = new ReferenceListener();
 			referenceListener.enterReference(ctx.reference());
-		}
-		if (null != ctx.setExpression()) {
+		} else if (null != ctx.setExpression()) {
 			final SetExpressionListener setExpressionListener = new SetExpressionListener();
 			setExpressionListener.enterSetExpression(ctx.setExpression());
+		} else if (null != ctx.parentheticalExpression()) {
+			throw new RuntimeException("Not Implemented");
+		} else if (null != ctx.literalConstant()) {
+			throw new RuntimeException("Not Implemented");
+		} else if (null != ctx.parentheticalExpression()) {
+			throw new RuntimeException("Not Implemented");
+		} else if (null != ctx.literalSequence()) {
+			throw new RuntimeException("Not Implemented");
+		} else if (null != ctx.quantifiedExpression()) {
+			throw new RuntimeException("Not Implemented");
+		} else if (null != ctx.sequenceExpression()) {
+			throw new RuntimeException("Not Implemented");
 		}
 	}
 }

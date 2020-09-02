@@ -1,13 +1,13 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
+import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class ConnectorTypeDeclarationListener extends AbstractListener {
 	public Type type;
 
 	@Override
-	public void enterConnectorTypeDeclaration(acmeParser.ConnectorTypeDeclarationContext ctx) {
+	public void enterAcmeConnectorTypeDeclaration(AcmeConnectorTypeDeclarationContext ctx) {
 		/*
 		 * name
 		 */

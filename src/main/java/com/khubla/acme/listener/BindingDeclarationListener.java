@@ -4,7 +4,6 @@ import java.util.*;
 
 import org.antlr.v4.runtime.tree.*;
 
-import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
@@ -12,7 +11,7 @@ public class BindingDeclarationListener extends AbstractListener {
 	public Binding binding;
 
 	@Override
-	public void enterBindingDeclaration(acmeParser.BindingDeclarationContext ctx) {
+	public void enterAcmeBindingDeclaration(AcmeBindingDeclarationContext ctx) {
 		/*
 		 * names
 		 */

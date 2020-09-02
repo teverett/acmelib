@@ -1,6 +1,5 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.System;;
 
@@ -8,13 +7,15 @@ public class SystemDeclarationListener extends AbstractListener {
 	public System system;
 
 	@Override
-	public void enterSystemDeclaration(acmeParser.SystemDeclarationContext ctx) {
+	public void enterAcmeSystemDeclaration(AcmeSystemDeclarationContext ctx) {
 		system = new System();
 		/*
 		 * name
 		 */
-		if (null != ctx.IDENTIFIER()) {
-			system.setName(ctx.IDENTIFIER().getText());
+		if (null != ctx.identifier()) {
+			IdentifierListener identifierListener = new IdentifierListener();
+			identifierListener.enterIdentifier(ctx.identifier());
+			system.setName(identifierListener.identifier);
 		}
 		/*
 		 * names

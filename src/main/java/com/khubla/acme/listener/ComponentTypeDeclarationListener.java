@@ -1,13 +1,13 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
+import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class ComponentTypeDeclarationListener extends AbstractListener {
 	public Type type;
 
 	@Override
-	public void enterComponentTypeDeclaration(acmeParser.ComponentTypeDeclarationContext ctx) {
+	public void enterAcmeComponentTypeDeclaration(AcmeComponentTypeDeclarationContext ctx) {
 		/*
 		 * name
 		 */

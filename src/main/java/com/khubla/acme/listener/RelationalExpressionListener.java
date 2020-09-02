@@ -1,15 +1,14 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
 
 public class RelationalExpressionListener extends AbstractListener {
 	@Override
-	public void enterRelationalExpression(acmeParser.RelationalExpressionContext ctx) {
-		if (null != ctx.additiveExpression()) {
-			for (final AdditiveExpressionContext additiveExpressionContext : ctx.additiveExpression()) {
+	public void enterDRRelationalExpression(DRRelationalExpressionContext ctx) {
+		if (null != ctx.dRAdditiveExpression()) {
+			for (final DRAdditiveExpressionContext dRAdditiveExpressionContext : ctx.dRAdditiveExpression()) {
 				final AdditiveExpressionListener additiveExpressionListener = new AdditiveExpressionListener();
-				additiveExpressionListener.enterAdditiveExpression(additiveExpressionContext);
+				additiveExpressionListener.enterDRAdditiveExpression(dRAdditiveExpressionContext);
 			}
 		}
 	}

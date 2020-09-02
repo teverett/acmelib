@@ -4,7 +4,6 @@ import java.util.*;
 
 import org.antlr.v4.runtime.tree.*;
 
-import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
@@ -12,7 +11,7 @@ public class AttachmentsDeclarationListener extends AbstractListener {
 	public Attachments attachments;
 
 	@Override
-	public void enterAttachmentsDeclaration(acmeParser.AttachmentsDeclarationContext ctx) {
+	public void enterAcmeAttachmentDeclaration(AcmeAttachmentDeclarationContext ctx) {
 		attachments = new Attachments();
 		/*
 		 * identifiers

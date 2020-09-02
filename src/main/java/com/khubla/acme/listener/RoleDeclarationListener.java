@@ -1,6 +1,5 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
@@ -8,7 +7,7 @@ public class RoleDeclarationListener extends AbstractListener {
 	public Role role;
 
 	@Override
-	public void enterRoleDeclaration(acmeParser.RoleDeclarationContext ctx) {
+	public void enterAcmeRoleDeclaration(AcmeRoleDeclarationContext ctx) {
 		role = new Role();
 		/*
 		 * name

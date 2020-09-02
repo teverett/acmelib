@@ -1,14 +1,13 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
 import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
-public class DesignListener extends AbstractListener {
+public class DesignDeclarationListener extends AbstractListener {
 	private Design design;
 
 	@Override
-	public void enterDesign(acmeParser.DesignContext ctx) {
+	public void enterAcmeDesignDeclaration(AcmeDesignDeclarationContext ctx) {
 		design = new Design();
 		/*
 		 * filenames

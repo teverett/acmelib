@@ -1,12 +1,12 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
+import com.khubla.acme.acmeParser.*;
 
 public class PropertyValueDeclarationListener extends AbstractListener {
 	public String value;
 
 	@Override
-	public void enterPropertyValueDeclaration(acmeParser.PropertyValueDeclarationContext ctx) {
+	public void enterAcmePropertyValueDeclaration(AcmePropertyValueDeclarationContext ctx) {
 		if (ctx.INTEGER_LITERAL() != null) {
 			value = ctx.INTEGER_LITERAL().getText();
 		} else if (ctx.FLOATING_POINT_LITERAL() != null) {

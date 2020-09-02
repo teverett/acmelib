@@ -1,13 +1,13 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
+import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class RepresentationDeclarationListener extends AbstractListener {
 	public Representation representation;
 
 	@Override
-	public void enterRepresentationDeclaration(acmeParser.RepresentationDeclarationContext ctx) {
+	public void enterAcmeRepresentationDeclaration(AcmeRepresentationDeclarationContext ctx) {
 		representation = new Representation();
 		/*
 		 * name

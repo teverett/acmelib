@@ -1,10 +1,10 @@
 package com.khubla.acme.listener;
 
-import com.khubla.acme.*;
+import com.khubla.acme.acmeParser.*;
 
 public class FamilyDeclarationListener extends AbstractListener {
 	@Override
-	public void enterFamilyDeclaration(acmeParser.FamilyDeclarationContext ctx) {
+	public void enterAcmeFamilyDeclaration(AcmeFamilyDeclarationContext ctx) {
 		throw new RuntimeException("Not Implemented");
 	}
 }

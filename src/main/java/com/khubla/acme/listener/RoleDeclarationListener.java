@@ -13,7 +13,7 @@ public class RoleDeclarationListener extends AbstractListener {
 		 * name
 		 */
 		if (null != ctx.identifier()) {
-			IdentifierListener identifierListener = new IdentifierListener();
+			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
 			role.setName(identifierListener.identifier);
 		}
@@ -21,8 +21,8 @@ public class RoleDeclarationListener extends AbstractListener {
 		 * ref
 		 */
 		if (null != ctx.acmeRoleTypeRef()) {
-			for (AcmeRoleTypeRefContext acmeRoleTypeRefContext : ctx.acmeRoleTypeRef()) {
-				RoleTypeRefListener roleTypeRefListener = new RoleTypeRefListener();
+			for (final AcmeRoleTypeRefContext acmeRoleTypeRefContext : ctx.acmeRoleTypeRef()) {
+				final RoleTypeRefListener roleTypeRefListener = new RoleTypeRefListener();
 				roleTypeRefListener.enterAcmeRoleTypeRef(acmeRoleTypeRefContext);
 			}
 		}
@@ -30,15 +30,15 @@ public class RoleDeclarationListener extends AbstractListener {
 		 * body
 		 */
 		if (null != ctx.acmeRoleBody()) {
-			RoleBodyListener roleBodyListener = new RoleBodyListener();
+			final RoleBodyListener roleBodyListener = new RoleBodyListener();
 			roleBodyListener.enterAcmeRoleBody(ctx.acmeRoleBody());
 		}
 		/*
 		 * instantiated red
 		 */
 		if (null != ctx.acmeRoleInstantiatedTypeRef()) {
-			for (AcmeRoleInstantiatedTypeRefContext acmeRoleInstantiatedTypeRefContext : ctx.acmeRoleInstantiatedTypeRef()) {
-				RoleInstantiatedTypeRefListener roleInstantiatedTypeRefListener = new RoleInstantiatedTypeRefListener();
+			for (final AcmeRoleInstantiatedTypeRefContext acmeRoleInstantiatedTypeRefContext : ctx.acmeRoleInstantiatedTypeRef()) {
+				final RoleInstantiatedTypeRefListener roleInstantiatedTypeRefListener = new RoleInstantiatedTypeRefListener();
 				roleInstantiatedTypeRefListener.enterAcmeRoleInstantiatedTypeRef(acmeRoleInstantiatedTypeRefContext);
 			}
 		}

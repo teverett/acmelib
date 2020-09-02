@@ -8,13 +8,13 @@ public class ImportDeclarationListener extends AbstractListener {
 	@Override
 	public void enterAcmeImportDeclaration(AcmeImportDeclarationContext ctx) {
 		if (null != ctx.filename()) {
-			FilenameListener filenameListener = new FilenameListener();
+			final FilenameListener filenameListener = new FilenameListener();
 			filenameListener.enterFilename(ctx.filename());
-			this.name = filenameListener.name;
+			name = filenameListener.name;
 		} else if (null != ctx.stringLiteral()) {
-			StringLiteralListener stringLiteralListener = new StringLiteralListener();
+			final StringLiteralListener stringLiteralListener = new StringLiteralListener();
 			stringLiteralListener.enterStringLiteral(ctx.stringLiteral());
-			this.name = stringLiteralListener.string;
+			name = stringLiteralListener.string;
 		}
 	}
 }

@@ -11,13 +11,10 @@ public class AttachmentsDeclarationListener extends AbstractListener {
 	@Override
 	public void enterAcmeAttachmentDeclaration(AcmeAttachmentDeclarationContext ctx) {
 		attachments = new Attachments();
-		/*
-		 * identifiers
-		 */
-		final List<String> names = new ArrayList<String>();
+		new ArrayList<String>();
 		if (null != ctx.acmeInstanceRef()) {
 			for (final AcmeInstanceRefContext acmeInstanceRefContext : ctx.acmeInstanceRef()) {
-				InstanceRefListener instanceRefListener = new InstanceRefListener();
+				final InstanceRefListener instanceRefListener = new InstanceRefListener();
 				instanceRefListener.enterAcmeInstanceRef(acmeInstanceRefContext);
 			}
 		}

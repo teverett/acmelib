@@ -13,7 +13,7 @@ public class SystemDeclarationListener extends AbstractListener {
 		 * name
 		 */
 		if (null != ctx.identifier()) {
-			IdentifierListener identifierListener = new IdentifierListener();
+			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
 			system.setName(identifierListener.identifier);
 		}
@@ -21,8 +21,8 @@ public class SystemDeclarationListener extends AbstractListener {
 		 * family
 		 */
 		if (null != ctx.acmeFamilyRef()) {
-			for (AcmeFamilyRefContext AcmeFamilyRefContext : ctx.acmeFamilyRef()) {
-				FamilyRefListener familyRefListener = new FamilyRefListener();
+			for (final AcmeFamilyRefContext AcmeFamilyRefContext : ctx.acmeFamilyRef()) {
+				final FamilyRefListener familyRefListener = new FamilyRefListener();
 				familyRefListener.enterAcmeFamilyRef(AcmeFamilyRefContext);
 			}
 		}
@@ -30,15 +30,15 @@ public class SystemDeclarationListener extends AbstractListener {
 		 * body
 		 */
 		if (null != ctx.acmeSystemBody()) {
-			SystemBodyListener systemBodyListener = new SystemBodyListener();
+			final SystemBodyListener systemBodyListener = new SystemBodyListener();
 			systemBodyListener.enterAcmeSystemBody(ctx.acmeSystemBody());
 		}
 		/*
 		 * instantation re
 		 */
 		if (null != ctx.acmeFamilyInstantiationRef()) {
-			for (AcmeFamilyInstantiationRefContext acmeFamilyInstantiationRefContext : ctx.acmeFamilyInstantiationRef()) {
-				FamilyInstantiationRefListener familyInstantiationRefListener = new FamilyInstantiationRefListener();
+			for (final AcmeFamilyInstantiationRefContext acmeFamilyInstantiationRefContext : ctx.acmeFamilyInstantiationRef()) {
+				final FamilyInstantiationRefListener familyInstantiationRefListener = new FamilyInstantiationRefListener();
 				familyInstantiationRefListener.enterAcmeFamilyInstantiationRef(acmeFamilyInstantiationRefContext);
 			}
 		}

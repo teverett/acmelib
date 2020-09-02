@@ -13,7 +13,7 @@ public class PortTypeDeclarationListener extends AbstractListener {
 		 */
 		type = new Type();
 		if (null != ctx.identifier()) {
-			IdentifierListener identifierListener = new IdentifierListener();
+			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
 			type.setName(identifierListener.identifier);
 		}
@@ -21,15 +21,15 @@ public class PortTypeDeclarationListener extends AbstractListener {
 		 * body
 		 */
 		if (null != ctx.acmePortBody()) {
-			PortBodyListener portBodyListener = new PortBodyListener();
+			final PortBodyListener portBodyListener = new PortBodyListener();
 			portBodyListener.enterAcmePortBody(ctx.acmePortBody());
 		}
 		/*
 		 * ref
 		 */
 		if (null != ctx.acmePortTypeRef()) {
-			for (AcmePortTypeRefContext acmePortTypeRefContext : ctx.acmePortTypeRef()) {
-				PortTypeRefListener portTypeRefListener = new PortTypeRefListener();
+			for (final AcmePortTypeRefContext acmePortTypeRefContext : ctx.acmePortTypeRef()) {
+				final PortTypeRefListener portTypeRefListener = new PortTypeRefListener();
 				portTypeRefListener.enterAcmePortTypeRef(acmePortTypeRefContext);
 			}
 		}

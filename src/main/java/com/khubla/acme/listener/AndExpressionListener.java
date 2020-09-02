@@ -6,8 +6,8 @@ public class AndExpressionListener extends AbstractListener {
 	@Override
 	public void enterDRAndExpression(DRAndExpressionContext ctx) {
 		if (null != ctx.dRNegateExpression()) {
-			for (DRNegateExpressionContext dRNegateExpressionContext : ctx.dRNegateExpression()) {
-				NegateExpressionListener negateExpressionListener = new NegateExpressionListener();
+			for (final DRNegateExpressionContext dRNegateExpressionContext : ctx.dRNegateExpression()) {
+				final NegateExpressionListener negateExpressionListener = new NegateExpressionListener();
 				negateExpressionListener.enterDRNegateExpression(dRNegateExpressionContext);
 			}
 		}

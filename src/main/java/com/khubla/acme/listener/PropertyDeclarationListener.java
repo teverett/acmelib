@@ -12,28 +12,28 @@ public class PropertyDeclarationListener extends AbstractListener {
 		 * id
 		 */
 		if (null != ctx.identifier()) {
-			IdentifierListener identifierListener = new IdentifierListener();
+			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
 		}
 		/*
 		 * type
 		 */
 		if (null != ctx.acmePropertyTypeRef()) {
-			PropertyTypeRefListener propertyTypeRefListener = new PropertyTypeRefListener();
+			final PropertyTypeRefListener propertyTypeRefListener = new PropertyTypeRefListener();
 			propertyTypeRefListener.enterAcmePropertyTypeRef(ctx.acmePropertyTypeRef());
 		}
 		/*
 		 * value
 		 */
 		if (null != ctx.acmePropertyValueDeclaration()) {
-			PropertyValueDeclarationListener propertyValueDeclarationListener = new PropertyValueDeclarationListener();
+			final PropertyValueDeclarationListener propertyValueDeclarationListener = new PropertyValueDeclarationListener();
 			propertyValueDeclarationListener.enterAcmePropertyValueDeclaration(ctx.acmePropertyValueDeclaration());
 		}
 		/*
 		 * block
 		 */
 		if (null != ctx.acmePropertyBlock()) {
-			PropertyBlockListener propertyBlockListener = new PropertyBlockListener();
+			final PropertyBlockListener propertyBlockListener = new PropertyBlockListener();
 			propertyBlockListener.enterAcmePropertyBlock(ctx.acmePropertyBlock());
 		}
 	}

@@ -13,7 +13,7 @@ public class ConnectorDeclarationListener extends AbstractListener {
 		 * name
 		 */
 		if (null != ctx.identifier()) {
-			IdentifierListener identifierListener = new IdentifierListener();
+			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
 			connector.setName(identifierListener.identifier);
 		}
@@ -21,8 +21,8 @@ public class ConnectorDeclarationListener extends AbstractListener {
 		 * ref
 		 */
 		if (null != ctx.acmeConnectorTypeRef()) {
-			for (AcmeConnectorTypeRefContext acmeConnectorTypeRefContext : ctx.acmeConnectorTypeRef()) {
-				ConnectorTypeRefListener connectorTypeRefListener = new ConnectorTypeRefListener();
+			for (final AcmeConnectorTypeRefContext acmeConnectorTypeRefContext : ctx.acmeConnectorTypeRef()) {
+				final ConnectorTypeRefListener connectorTypeRefListener = new ConnectorTypeRefListener();
 				connectorTypeRefListener.enterAcmeConnectorTypeRef(acmeConnectorTypeRefContext);
 			}
 		}
@@ -30,7 +30,7 @@ public class ConnectorDeclarationListener extends AbstractListener {
 		 * body
 		 */
 		if (null != ctx.acmeConnectorBody()) {
-			ConnectorBodyListener connectorBodyListener = new ConnectorBodyListener();
+			final ConnectorBodyListener connectorBodyListener = new ConnectorBodyListener();
 			connectorBodyListener.enterAcmeConnectorBody(ctx.acmeConnectorBody());
 		}
 	}

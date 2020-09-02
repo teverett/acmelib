@@ -18,18 +18,16 @@ public class RepresentationDeclarationListener extends AbstractListener {
 		/*
 		 * system
 		 */
-		if (null != ctx.systemDeclaration()) {
+		if (null != ctx.acmeSystemDeclaration()) {
 			final SystemDeclarationListener systemDeclarationListener = new SystemDeclarationListener();
-			systemDeclarationListener.enterSystemDeclaration(ctx.systemDeclaration());
-			representation.getSystems().put(systemDeclarationListener.system.getName(), systemDeclarationListener.system);
+			systemDeclarationListener.enterAcmeSystemDeclaration(ctx.acmeSystemDeclaration());
 		}
 		/*
-		 * bindings
+		 * bindings map
 		 */
-		if (null != ctx.bindingsMapDeclaration()) {
+		if (null != ctx.acmeBindingsMapDeclaration()) {
 			final BindingsMapDeclarationListener bindingsMapDeclarationListener = new BindingsMapDeclarationListener();
-			bindingsMapDeclarationListener.enterBindingsMapDeclaration(ctx.bindingsMapDeclaration());
-			representation.setBindings(bindingsMapDeclarationListener.bindings);
+			bindingsMapDeclarationListener.enterAcmeBindingsMapDeclaration(ctx.acmeBindingsMapDeclaration());
 		}
 	}
 }

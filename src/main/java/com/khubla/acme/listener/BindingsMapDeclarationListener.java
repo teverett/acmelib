@@ -8,12 +8,10 @@ public class BindingsMapDeclarationListener extends AbstractListener {
 
 	@Override
 	public void enterAcmeBindingsMapDeclaration(AcmeBindingsMapDeclarationContext ctx) {
-		bindings = new Bindings();
-		if (null != ctx.bindingDeclaration()) {
-			for (final BindingDeclarationContext bindingDeclarationContext : ctx.bindingDeclaration()) {
+		if (null != ctx.acmeBindingDeclaration()) {
+			for (final AcmeBindingDeclarationContext acmeBindingDeclarationContext : ctx.acmeBindingDeclaration()) {
 				final BindingDeclarationListener bindingDeclarationListener = new BindingDeclarationListener();
-				bindingDeclarationListener.enterBindingDeclaration(bindingDeclarationContext);
-				bindings.getBindings().add(bindingDeclarationListener.binding);
+				bindingDeclarationListener.enterAcmeBindingDeclaration(acmeBindingDeclarationContext);
 			}
 		}
 	}

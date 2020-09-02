@@ -12,16 +12,26 @@ public class ConnectorTypeDeclarationListener extends AbstractListener {
 		 * name
 		 */
 		type = new Type();
-		if (null != ctx.IDENTIFIER()) {
-			type.setName(ctx.IDENTIFIER().getText());
+		if (null != ctx.identifier()) {
+			final IdentifierListener identifierListener = new IdentifierListener();
+			identifierListener.enterIdentifier(ctx.identifier());
+			type.setName(identifierListener.identifier);
 		}
 		/*
-		 * desc
+		 * body
 		 */
-		if (null != ctx.parse_ConnectorDescription()) {
-			final Connector connector = new Connector();
-			final Parse_ConnectorDescriptionListener parse_ConnectorDescriptionListener = new Parse_ConnectorDescriptionListener(connector);
-			parse_ConnectorDescriptionListener.enterParse_ConnectorDescription(ctx.parse_ConnectorDescription());
+		if (null != ctx.acmeConnectorBody()) {
+			final ConnectorBodyListener connectorBodyListener = new ConnectorBodyListener();
+			connectorBodyListener.enterAcmeConnectorBody(ctx.acmeConnectorBody());
+		}
+		/*
+		 * ref
+		 */
+		if (null != ctx.acmeConnectorTypeRef()) {
+			for (final AcmeConnectorTypeRefContext acmeConnectorTypeRefContext : ctx.acmeConnectorTypeRef()) {
+				final ConnectorTypeRefListener connectorTypeRefListener = new ConnectorTypeRefListener();
+				connectorTypeRefListener.enterAcmeConnectorTypeRef(acmeConnectorTypeRefContext);
+			}
 		}
 	}
 }

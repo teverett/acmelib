@@ -7,6 +7,6 @@ public class StringLiteralListener extends AbstractListener {
 
 	@Override
 	public void enterStringLiteral(StringLiteralContext ctx) {
-		this.string = ctx.STRING_LITERAL().getText();
+		string = ctx.STRING_LITERAL().getText();
 	}
 }

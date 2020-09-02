@@ -12,16 +12,26 @@ public class ComponentTypeDeclarationListener extends AbstractListener {
 		 * name
 		 */
 		type = new Type();
-		if (null != ctx.IDENTIFIER()) {
-			type.setName(ctx.IDENTIFIER().getText());
+		if (null != ctx.identifier()) {
+			final IdentifierListener identifierListener = new IdentifierListener();
+			identifierListener.enterIdentifier(ctx.identifier());
+			type.setName(identifierListener.identifier);
 		}
 		/*
-		 * desc
+		 * body
 		 */
-		if (null != ctx.parse_ComponentDescription()) {
-			final Component component = new Component();
-			final Parse_ComponentDescriptionListener parse_ComponentDescriptionListener = new Parse_ComponentDescriptionListener(component);
-			parse_ComponentDescriptionListener.enterParse_ComponentDescription(ctx.parse_ComponentDescription());
+		if (null != ctx.acmeComponentBody()) {
+			final ComponentBodyListener componentBodyListener = new ComponentBodyListener();
+			componentBodyListener.enterAcmeComponentBody(ctx.acmeComponentBody());
+		}
+		/*
+		 * ref
+		 */
+		if (null != ctx.acmeComponentTypeRef()) {
+			for (final AcmeComponentTypeRefContext acmeComponentTypeRefContext : ctx.acmeComponentTypeRef()) {
+				final ComponentTypeRefListener componentTypeRefListener = new ComponentTypeRefListener();
+				componentTypeRefListener.enterAcmeComponentTypeRef(acmeComponentTypeRefContext);
+			}
 		}
 	}
 }

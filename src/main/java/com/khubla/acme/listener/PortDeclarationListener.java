@@ -13,7 +13,7 @@ public class PortDeclarationListener extends AbstractListener {
 		 * name
 		 */
 		if (null != ctx.identifier()) {
-			IdentifierListener identifierListener = new IdentifierListener();
+			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
 			port.setName(identifierListener.identifier);
 		}
@@ -30,15 +30,15 @@ public class PortDeclarationListener extends AbstractListener {
 		 * body
 		 */
 		if (null != ctx.acmePortBody()) {
-			PortBodyListener portBodyListener = new PortBodyListener();
+			final PortBodyListener portBodyListener = new PortBodyListener();
 			portBodyListener.enterAcmePortBody(ctx.acmePortBody());
 		}
 		/*
 		 * ref
 		 */
 		if (null != ctx.acmePortInstantiatedTypeRef()) {
-			for (AcmePortInstantiatedTypeRefContext acmePortInstantiatedTypeRefContext : ctx.acmePortInstantiatedTypeRef()) {
-				PortInstantiatedTypeRefListener portInstantiatedTypeRefListener = new PortInstantiatedTypeRefListener();
+			for (final AcmePortInstantiatedTypeRefContext acmePortInstantiatedTypeRefContext : ctx.acmePortInstantiatedTypeRef()) {
+				final PortInstantiatedTypeRefListener portInstantiatedTypeRefListener = new PortInstantiatedTypeRefListener();
 				portInstantiatedTypeRefListener.enterAcmePortInstantiatedTypeRef(acmePortInstantiatedTypeRefContext);
 			}
 		}

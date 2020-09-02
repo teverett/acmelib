@@ -9,7 +9,7 @@ public class NegativeExpressionListener extends AbstractListener {
 			final NegativeExpressionListener negativeExpressionListener = new NegativeExpressionListener();
 			negativeExpressionListener.enterDRNegativeExpression(ctx.dRNegativeExpression());
 		} else if (null != ctx.primitiveExpression()) {
-			PrimitiveExpressionListener primitiveExpressionListener = new PrimitiveExpressionListener();
+			final PrimitiveExpressionListener primitiveExpressionListener = new PrimitiveExpressionListener();
 			primitiveExpressionListener.enterPrimitiveExpression(ctx.primitiveExpression());
 		}
 	}

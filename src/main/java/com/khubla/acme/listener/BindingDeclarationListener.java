@@ -12,8 +12,8 @@ public class BindingDeclarationListener extends AbstractListener {
 		 * ref
 		 */
 		if (null != ctx.acmeInstanceRef()) {
-			for (AcmeInstanceRefContext acmeInstanceRefContext : ctx.acmeInstanceRef()) {
-				InstanceRefListener instanceRefListener = new InstanceRefListener();
+			for (final AcmeInstanceRefContext acmeInstanceRefContext : ctx.acmeInstanceRef()) {
+				final InstanceRefListener instanceRefListener = new InstanceRefListener();
 				instanceRefListener.enterAcmeInstanceRef(acmeInstanceRefContext);
 			}
 		}
@@ -21,14 +21,14 @@ public class BindingDeclarationListener extends AbstractListener {
 		 * prop
 		 */
 		if (null != ctx.acmePropertyDeclaration()) {
-			PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
+			final PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
 			propertyDeclarationListener.enterAcmePropertyDeclaration(ctx.acmePropertyDeclaration());
 		}
 		/*
 		 * prop block
 		 */
 		if (null != ctx.acmePropertyBlock()) {
-			PropertyBlockListener propertyBlockListener = new PropertyBlockListener();
+			final PropertyBlockListener propertyBlockListener = new PropertyBlockListener();
 			propertyBlockListener.enterAcmePropertyBlock(ctx.acmePropertyBlock());
 		}
 	}

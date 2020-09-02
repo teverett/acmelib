@@ -12,7 +12,7 @@ public class InstanceRefListener extends AbstractListener {
 	@Override
 	public void enterAcmeInstanceRef(AcmeInstanceRefContext ctx) {
 		if (null != ctx.IDENTIFIER()) {
-			for (TerminalNode terminalNode : ctx.IDENTIFIER()) {
+			for (final TerminalNode terminalNode : ctx.IDENTIFIER()) {
 				identifier.add(terminalNode.getText());
 			}
 		}

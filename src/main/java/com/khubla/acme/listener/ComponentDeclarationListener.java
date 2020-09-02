@@ -12,24 +12,35 @@ public class ComponentDeclarationListener extends AbstractListener {
 		/*
 		 * name
 		 */
-		if (null != ctx.IDENTIFIER()) {
-			component.setName(ctx.IDENTIFIER().getText());
+		if (null != ctx.identifier()) {
+			final IdentifierListener identifierListener = new IdentifierListener();
+			identifierListener.enterIdentifier(ctx.identifier());
+			component.setName(identifierListener.identifier);
 		}
 		/*
-		 * types
+		 * type ref
 		 */
-		if (null != ctx.lookup_ComponentTypeByName()) {
-			for (final Lookup_ComponentTypeByNameContext lookup_ComponentTypeByNameContext : ctx.lookup_ComponentTypeByName()) {
-				final Lookup_ComponentTypeByNameListener lookup_ComponentTypeByNameListener = new Lookup_ComponentTypeByNameListener();
-				lookup_ComponentTypeByNameListener.enterLookup_ComponentTypeByName(lookup_ComponentTypeByNameContext);
+		if (null != ctx.acmeComponentTypeRef()) {
+			for (final AcmeComponentTypeRefContext acmeComponentTypeRefContext : ctx.acmeComponentTypeRef()) {
+				final ComponentTypeRefListener componentTypeRefListener = new ComponentTypeRefListener();
+				componentTypeRefListener.enterAcmeComponentTypeRef(acmeComponentTypeRefContext);
 			}
 		}
 		/*
-		 * description
+		 * body
 		 */
-		if (null != ctx.parse_ComponentDescription()) {
-			final Parse_ComponentDescriptionListener parse_ComponentDescriptionListener = new Parse_ComponentDescriptionListener(component);
-			parse_ComponentDescriptionListener.enterParse_ComponentDescription(ctx.parse_ComponentDescription());
+		if (null != ctx.acmeComponentBody()) {
+			final ComponentBodyListener componentBodyListener = new ComponentBodyListener();
+			componentBodyListener.enterAcmeComponentBody(ctx.acmeComponentBody());
+		}
+		/*
+		 * instantiated ref
+		 */
+		if (null != ctx.acmeComponentInstantiatedTypeRef()) {
+			for (final AcmeComponentInstantiatedTypeRefContext acmeComponentInstantiatedTypeRefContext : ctx.acmeComponentInstantiatedTypeRef()) {
+				final ComponentInstantiatedTypeRefListener componentInstantiatedTypeRefListener = new ComponentInstantiatedTypeRefListener();
+				componentInstantiatedTypeRefListener.enterAcmeComponentInstantiatedTypeRef(acmeComponentInstantiatedTypeRefContext);
+			}
 		}
 	}
 }

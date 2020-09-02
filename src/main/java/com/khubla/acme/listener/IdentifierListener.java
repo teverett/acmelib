@@ -8,7 +8,7 @@ public class IdentifierListener extends AbstractListener {
 	@Override
 	public void enterIdentifier(IdentifierContext ctx) {
 		if (null != ctx.IDENTIFIER()) {
-			this.identifier = ctx.IDENTIFIER().getText();
+			identifier = ctx.IDENTIFIER().getText();
 		}
 	}
 }

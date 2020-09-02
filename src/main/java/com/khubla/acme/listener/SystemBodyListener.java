@@ -13,8 +13,8 @@ public class SystemBodyListener extends AbstractListener {
 		 * property
 		 */
 		if (null != ctx.acmePropertyDeclaration()) {
-			for (AcmePropertyDeclarationContext acmePropertyDeclarationContext : ctx.acmePropertyDeclaration()) {
-				PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
+			for (final AcmePropertyDeclarationContext acmePropertyDeclarationContext : ctx.acmePropertyDeclaration()) {
+				final PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
 				propertyDeclarationListener.enterAcmePropertyDeclaration(acmePropertyDeclarationContext);
 			}
 		}
@@ -22,8 +22,8 @@ public class SystemBodyListener extends AbstractListener {
 		 * component
 		 */
 		if (null != ctx.acmeComponentDeclaration()) {
-			for (AcmeComponentDeclarationContext acmeComponentDeclarationContext : ctx.acmeComponentDeclaration()) {
-				ComponentDeclarationListener componentDeclarationListener = new ComponentDeclarationListener();
+			for (final AcmeComponentDeclarationContext acmeComponentDeclarationContext : ctx.acmeComponentDeclaration()) {
+				final ComponentDeclarationListener componentDeclarationListener = new ComponentDeclarationListener();
 				componentDeclarationListener.enterAcmeComponentDeclaration(acmeComponentDeclarationContext);
 			}
 		}
@@ -31,8 +31,8 @@ public class SystemBodyListener extends AbstractListener {
 		 * connector
 		 */
 		if (null != ctx.acmeConnectorDeclaration()) {
-			for (AcmeConnectorDeclarationContext acmeConnectorDeclarationContext : ctx.acmeConnectorDeclaration()) {
-				ConnectorDeclarationListener connectorDeclarationListener = new ConnectorDeclarationListener();
+			for (final AcmeConnectorDeclarationContext acmeConnectorDeclarationContext : ctx.acmeConnectorDeclaration()) {
+				final ConnectorDeclarationListener connectorDeclarationListener = new ConnectorDeclarationListener();
 				connectorDeclarationListener.enterAcmeConnectorDeclaration(acmeConnectorDeclarationContext);
 			}
 		}
@@ -40,8 +40,8 @@ public class SystemBodyListener extends AbstractListener {
 		 * attachment
 		 */
 		if (null != ctx.acmeAttachmentDeclaration()) {
-			for (AcmeAttachmentDeclarationContext acmeAttachmentDeclarationContext : ctx.acmeAttachmentDeclaration()) {
-				AttachmentsDeclarationListener attachmentsDeclarationListener = new AttachmentsDeclarationListener();
+			for (final AcmeAttachmentDeclarationContext acmeAttachmentDeclarationContext : ctx.acmeAttachmentDeclaration()) {
+				final AttachmentsDeclarationListener attachmentsDeclarationListener = new AttachmentsDeclarationListener();
 				attachmentsDeclarationListener.enterAcmeAttachmentDeclaration(acmeAttachmentDeclarationContext);
 			}
 		}
@@ -49,8 +49,8 @@ public class SystemBodyListener extends AbstractListener {
 		 * group
 		 */
 		if (null != ctx.acmeGroupDeclaration()) {
-			for (AcmeGroupDeclarationContext acmeGroupDeclarationContext : ctx.acmeGroupDeclaration()) {
-				GroupDeclarationListener groupDeclarationListener = new GroupDeclarationListener();
+			for (final AcmeGroupDeclarationContext acmeGroupDeclarationContext : ctx.acmeGroupDeclaration()) {
+				final GroupDeclarationListener groupDeclarationListener = new GroupDeclarationListener();
 				groupDeclarationListener.enterAcmeGroupDeclaration(acmeGroupDeclarationContext);
 			}
 		}
@@ -58,8 +58,8 @@ public class SystemBodyListener extends AbstractListener {
 		 * rule
 		 */
 		if (null != ctx.designRule()) {
-			for (DesignRuleContext designRuleContext : ctx.designRule()) {
-				DesignRuleListener designRuleListener = new DesignRuleListener();
+			for (final DesignRuleContext designRuleContext : ctx.designRule()) {
+				final DesignRuleListener designRuleListener = new DesignRuleListener();
 				designRuleListener.enterDesignRule(designRuleContext);
 			}
 		}

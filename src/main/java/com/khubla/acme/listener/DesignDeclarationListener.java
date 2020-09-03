@@ -8,5 +8,6 @@ public class DesignDeclarationListener extends AbstractListener {
 
 	@Override
 	public void enterAcmeDesignDeclaration(AcmeDesignDeclarationContext ctx) {
+		throw new RuntimeException("Not Implemented");
 	}
 }

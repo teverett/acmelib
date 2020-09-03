@@ -4,14 +4,14 @@ import com.khubla.acme.acmeParser.*;
 import com.khubla.acme.domain.*;
 
 public class PortTypeDeclarationListener extends AbstractListener {
-	public ComponentType type;
+	public PortType type;
 
 	@Override
 	public void enterAcmePortTypeDeclaration(AcmePortTypeDeclarationContext ctx) {
 		/*
 		 * name
 		 */
-		type = new ComponentType();
+		type = new PortType();
 		if (null != ctx.identifier()) {
 			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());

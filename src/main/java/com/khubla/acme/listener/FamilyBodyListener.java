@@ -86,7 +86,7 @@ public class FamilyBodyListener extends AbstractListener {
 			for (final AcmePortTypeDeclarationContext acmePortTypeDeclarationContext : ctx.acmePortTypeDeclaration()) {
 				final PortTypeDeclarationListener portTypeDeclarationListener = new PortTypeDeclarationListener();
 				portTypeDeclarationListener.enterAcmePortTypeDeclaration(acmePortTypeDeclarationContext);
-				throw new RuntimeException("Not Implemented");
+				family.addPortType(portTypeDeclarationListener.type);
 			}
 		}
 		if (null != ctx.acmePropertyDeclaration()) {

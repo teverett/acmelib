@@ -11,6 +11,7 @@ public class Family {
 	private final Map<String, ConnectorType> connectorTypes = new HashMap<String, ConnectorType>();
 	private final Map<String, PortType> portTypes = new HashMap<String, PortType>();
 	private final Map<String, RoleType> roleTypes = new HashMap<String, RoleType>();
+	private final Map<String, PropertyType> propertyTypes = new HashMap<String, PropertyType>();
 	private final List<DesignRule> designRules = new ArrayList<DesignRule>();
 
 	public void addComponent(Component component) {
@@ -35,6 +36,10 @@ public class Family {
 
 	public void addPortType(PortType portType) {
 		portTypes.put(portType.getName(), portType);
+	}
+
+	public void addPropertyType(PropertyType propertyType) {
+		propertyTypes.put(propertyType.getName(), propertyType);
 	}
 
 	public void addRoleType(RoleType roleType) {
@@ -71,6 +76,10 @@ public class Family {
 
 	public Map<String, PortType> getPortTypes() {
 		return portTypes;
+	}
+
+	public Map<String, PropertyType> getPropertyTypes() {
+		return propertyTypes;
 	}
 
 	public Map<String, RoleType> getRoleTypes() {

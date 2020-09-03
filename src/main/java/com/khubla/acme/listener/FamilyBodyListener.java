@@ -98,9 +98,9 @@ public class FamilyBodyListener extends AbstractListener {
 		}
 		if (null != ctx.acmePropertyTypeDeclaration()) {
 			for (final AcmePropertyTypeDeclarationContext acmePropertyTypeDeclarationContext : ctx.acmePropertyTypeDeclaration()) {
-				// PropertyTypeDeclarationListener propertyTypeDeclarationListener = new
-				// PropertyDeclarationListener();
-				throw new RuntimeException("Not Implemented");
+				final PropertyTypeDeclarationListener propertyTypeDeclarationListener = new PropertyTypeDeclarationListener();
+				propertyTypeDeclarationListener.enterAcmePropertyTypeDeclaration(acmePropertyTypeDeclarationContext);
+				family.addPropertyType(propertyTypeDeclarationListener.propertyType);
 			}
 		}
 		if (null != ctx.acmeRoleDeclaration()) {

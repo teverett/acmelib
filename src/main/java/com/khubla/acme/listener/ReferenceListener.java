@@ -11,20 +11,20 @@ public class ReferenceListener extends AbstractListener {
 	@Override
 	public void enterReference(acmeParser.ReferenceContext ctx) {
 		if (null != ctx.identifier()) {
-			for (IdentifierContext identifierContext : ctx.identifier()) {
-				IdentifierListener identifierListener = new IdentifierListener();
+			for (final IdentifierContext identifierContext : ctx.identifier()) {
+				final IdentifierListener identifierListener = new IdentifierListener();
 				identifierListener.enterIdentifier(identifierContext);
 				names.add(identifierListener.identifier);
 			}
 		}
 		if (null != ctx.setReference()) {
-			for (SetReferenceContext setReferenceContext : ctx.setReference()) {
-				SetReferenceListener setReferenceListener = new SetReferenceListener();
+			for (final SetReferenceContext setReferenceContext : ctx.setReference()) {
+				final SetReferenceListener setReferenceListener = new SetReferenceListener();
 				setReferenceListener.enterSetReference(setReferenceContext);
 			}
 		}
 		if (null != ctx.actualParams()) {
-			ActualParamsListener actualParamsListener = new ActualParamsListener();
+			final ActualParamsListener actualParamsListener = new ActualParamsListener();
 			actualParamsListener.enterActualParams(ctx.actualParams());
 		}
 	}

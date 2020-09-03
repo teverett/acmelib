@@ -5,6 +5,11 @@ import com.khubla.acme.acmeParser.*;
 public class PropertyTypeRecordListener extends AbstractListener {
 	@Override
 	public void enterAcmePropertyTypeRecord(AcmePropertyTypeRecordContext ctx) {
-		throw new RuntimeException("Not Implemented");
+		if (null != ctx.acmePropertyRecordFieldDescription()) {
+			for (final AcmePropertyRecordFieldDescriptionContext acmePropertyRecordFieldDescriptionContext : ctx.acmePropertyRecordFieldDescription()) {
+				final PropertyRecordFieldDescriptionListener propertyRecordFieldDescriptionListener = new PropertyRecordFieldDescriptionListener();
+				propertyRecordFieldDescriptionListener.enterAcmePropertyRecordFieldDescription(acmePropertyRecordFieldDescriptionContext);
+			}
+		}
 	}
 }

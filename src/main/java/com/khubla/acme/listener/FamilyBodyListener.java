@@ -114,7 +114,7 @@ public class FamilyBodyListener extends AbstractListener {
 			for (final AcmeRoleTypeDeclarationContext acmeRoleTypeDeclarationContext : ctx.acmeRoleTypeDeclaration()) {
 				final RoleTypeDeclarationListener roleTypeDeclarationListener = new RoleTypeDeclarationListener();
 				roleTypeDeclarationListener.enterAcmeRoleTypeDeclaration(acmeRoleTypeDeclarationContext);
-				throw new RuntimeException("Not Implemented");
+				family.addRoleType(roleTypeDeclarationListener.type);
 			}
 		}
 	}

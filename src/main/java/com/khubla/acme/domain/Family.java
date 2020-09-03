@@ -10,6 +10,7 @@ public class Family {
 	private final Map<String, Connector> connectors = new HashMap<String, Connector>();
 	private final Map<String, ConnectorType> connectorTypes = new HashMap<String, ConnectorType>();
 	private final Map<String, PortType> portTypes = new HashMap<String, PortType>();
+	private final Map<String, RoleType> roleTypes = new HashMap<String, RoleType>();
 
 	public void addComponent(Component component) {
 		components.put(component.getName(), component);
@@ -29,6 +30,10 @@ public class Family {
 
 	public void addPortType(PortType portType) {
 		portTypes.put(portType.getName(), portType);
+	}
+
+	public void addRoleType(RoleType roleType) {
+		roleTypes.put(roleType.getName(), roleType);
 	}
 
 	public Attachments getAttachments() {

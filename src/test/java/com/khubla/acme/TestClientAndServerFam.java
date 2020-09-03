@@ -56,7 +56,7 @@ public class TestClientAndServerFam {
 			/*
 			 * design rules
 			 */
-			List<DesignRule> designRules = family.getDesignRules();
+			final List<DesignRule> designRules = family.getDesignRules();
 			assertNotNull(designRules);
 			assertTrue(designRules.size() == 3);
 		} catch (final Exception e) {

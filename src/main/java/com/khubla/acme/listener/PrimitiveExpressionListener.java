@@ -15,7 +15,8 @@ public class PrimitiveExpressionListener extends AbstractListener {
 			final SetExpressionListener setExpressionListener = new SetExpressionListener();
 			setExpressionListener.enterSetExpression(ctx.setExpression());
 		} else if (null != ctx.parentheticalExpression()) {
-			throw new RuntimeException("Not Implemented");
+			final ParentheticalExpressionListener parentheticalExpressionListener = new ParentheticalExpressionListener();
+			parentheticalExpressionListener.enterParentheticalExpression(ctx.parentheticalExpression());
 		} else if (null != ctx.literalConstant()) {
 			throw new RuntimeException("Not Implemented");
 		} else if (null != ctx.parentheticalExpression()) {

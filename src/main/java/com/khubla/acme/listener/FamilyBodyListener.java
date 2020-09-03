@@ -117,6 +117,13 @@ public class FamilyBodyListener extends AbstractListener {
 				family.addRoleType(roleTypeDeclarationListener.type);
 			}
 		}
+		if (null != ctx.designRule()) {
+			for (final DesignRuleContext designRuleContext : ctx.designRule()) {
+				final DesignRuleListener designRuleListener = new DesignRuleListener();
+				designRuleListener.enterDesignRule(designRuleContext);
+				family.addDesignRule(designRuleListener.designRule);
+			}
+		}
 	}
 
 	public Family getFamily() {

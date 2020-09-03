@@ -3,6 +3,7 @@ package com.khubla.acme;
 import static org.junit.Assert.*;
 
 import java.io.*;
+import java.lang.System;
 
 import org.junit.*;
 
@@ -16,6 +17,7 @@ public class TestParseAll {
 	public void testParseAll() {
 		try {
 			for (final String file : files) {
+				System.out.println("Parsing: " + file);
 				final InputStream is = TestParseAll.class.getResourceAsStream("/cmu/" + file);
 				final Unit unit = ACMEReader.parseUnit(is);
 				assertNotNull(unit);

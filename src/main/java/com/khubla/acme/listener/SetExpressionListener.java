@@ -5,6 +5,17 @@ import com.khubla.acme.*;
 public class SetExpressionListener extends AbstractListener {
 	@Override
 	public void enterSetExpression(acmeParser.SetExpressionContext ctx) {
-		throw new RuntimeException("Not Implemented");
+		if (null != ctx.literalSet()) {
+			final LiteralSetListener literalSetListener = new LiteralSetListener();
+			literalSetListener.enterLiteralSet(ctx.literalSet());
+		}
+		if (null != ctx.pathExpression()) {
+			final PathExpressionListener pathExpressionListener = new PathExpressionListener();
+			pathExpressionListener.enterPathExpression(ctx.pathExpression());
+		}
+		if (null != ctx.setConstructor()) {
+			final SetConstructorListener setConstructorListener = new SetConstructorListener();
+			setConstructorListener.enterSetConstructor(ctx.setConstructor());
+		}
 	}
 }

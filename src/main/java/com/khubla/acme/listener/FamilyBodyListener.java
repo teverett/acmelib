@@ -55,7 +55,7 @@ public class FamilyBodyListener extends AbstractListener {
 			for (final AcmeDesignAnalysisDeclarationContext acmeDesignAnalysisDeclarationContext : ctx.acmeDesignAnalysisDeclaration()) {
 				final DesignAnalysisDeclarationListener designAnalysisDeclarationListener = new DesignAnalysisDeclarationListener();
 				designAnalysisDeclarationListener.enterAcmeDesignAnalysisDeclaration(acmeDesignAnalysisDeclarationContext);
-				throw new RuntimeException("Not Implemented");
+				family.addDesignAnalysis(designAnalysisDeclarationListener.designAnalysis);
 			}
 		}
 		if (null != ctx.acmeGenericElementTypeDeclaration()) {

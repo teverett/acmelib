@@ -18,11 +18,13 @@ public class PropertyValueDeclarationListener extends AbstractListener {
 		} else if (ctx.TRUE() != null) {
 			value = Boolean.TRUE;
 		} else if (ctx.acmePropertyRecord() != null) {
-			throw new RuntimeException("Not Implemented");
+			final PropertyRecordListener propertyRecordListener = new PropertyRecordListener();
+			propertyRecordListener.enterAcmePropertyRecord(ctx.acmePropertyRecord());
 		} else if (ctx.acmePropertySequence() != null) {
 			throw new RuntimeException("Not Implemented");
 		} else if (ctx.acmePropertySet() != null) {
-			throw new RuntimeException("Not Implemented");
+			final PropertySetListener propertySetListener = new PropertySetListener();
+			propertySetListener.enterAcmePropertySet(ctx.acmePropertySet());
 		} else if (ctx.enumidentifier() != null) {
 			final EnumidentifierListener enumidentifierListener = new EnumidentifierListener();
 			enumidentifierListener.enterEnumidentifier(ctx.enumidentifier());

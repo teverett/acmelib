@@ -5,6 +5,11 @@ import com.khubla.acme.acmeParser.*;
 public class PropertyBlockListener extends AbstractListener {
 	@Override
 	public void enterAcmePropertyBlock(AcmePropertyBlockContext ctx) {
-		throw new RuntimeException("Not Implemented");
+		if (null != ctx.acmePropertyBlockEntry()) {
+			for (final AcmePropertyBlockEntryContext acmePropertyBlockEntryContext : ctx.acmePropertyBlockEntry()) {
+				final PropertyBlockEntryListener propertyBlockEntryListener = new PropertyBlockEntryListener();
+				propertyBlockEntryListener.enterAcmePropertyBlockEntry(acmePropertyBlockEntryContext);
+			}
+		}
 	}
 }

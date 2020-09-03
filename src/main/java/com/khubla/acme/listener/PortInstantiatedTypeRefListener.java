@@ -10,8 +10,8 @@ public class PortInstantiatedTypeRefListener extends AbstractListener {
 	@Override
 	public void enterAcmePortInstantiatedTypeRef(AcmePortInstantiatedTypeRefContext ctx) {
 		if (null != ctx.identifier()) {
-			for (IdentifierContext identifierContext : ctx.identifier()) {
-				IdentifierListener identifierListener = new IdentifierListener();
+			for (final IdentifierContext identifierContext : ctx.identifier()) {
+				final IdentifierListener identifierListener = new IdentifierListener();
 				identifierListener.enterIdentifier(identifierContext);
 				names.add(identifierListener.identifier);
 			}

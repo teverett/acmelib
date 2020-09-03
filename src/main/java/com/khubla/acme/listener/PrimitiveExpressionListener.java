@@ -23,7 +23,8 @@ public class PrimitiveExpressionListener extends AbstractListener {
 		} else if (null != ctx.literalSequence()) {
 			throw new RuntimeException("Not Implemented");
 		} else if (null != ctx.quantifiedExpression()) {
-			throw new RuntimeException("Not Implemented");
+			final QuantifiedExpressionListener quantifiedExpressionListener = new QuantifiedExpressionListener();
+			quantifiedExpressionListener.enterQuantifiedExpression(ctx.quantifiedExpression());
 		} else if (null != ctx.sequenceExpression()) {
 			throw new RuntimeException("Not Implemented");
 		}

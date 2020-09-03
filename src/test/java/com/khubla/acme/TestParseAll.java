@@ -13,7 +13,6 @@ public class TestParseAll {
 			"SabPerformanceFamily.acmetest", "SharedDataFam.acmetest", "ThreeTieredFam.acmetest", "TieredFam.acmetest", "propertyUnification.acmetest", "test1.acmetest" };
 
 	@Test
-	@Ignore
 	public void testParseAll() {
 		try {
 			for (final String file : files) {

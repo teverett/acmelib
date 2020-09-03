@@ -4,11 +4,11 @@ import java.util.*;
 
 import com.khubla.acme.acmeParser.*;
 
-public class PortInstantiatedTypeRefListener extends AbstractListener {
+public class PropertyTypeDeclarationRefListener extends AbstractListener {
 	public List<String> names = new ArrayList<String>();
 
 	@Override
-	public void enterAcmePortInstantiatedTypeRef(AcmePortInstantiatedTypeRefContext ctx) {
+	public void enterAcmePropertyTypeDeclarationRef(AcmePropertyTypeDeclarationRefContext ctx) {
 		if (null != ctx.identifier()) {
 			for (IdentifierContext identifierContext : ctx.identifier()) {
 				IdentifierListener identifierListener = new IdentifierListener();

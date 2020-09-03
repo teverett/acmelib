@@ -3,8 +3,10 @@ package com.khubla.acme.listener;
 import com.khubla.acme.acmeParser.*;
 
 public class PropertyTypeFloatListener extends AbstractListener {
+	public String type;
+
 	@Override
 	public void enterAcmePropertyTypeFloat(AcmePropertyTypeFloatContext ctx) {
-		throw new RuntimeException("Not Implemented");
+		type = ctx.FLOAT().getText();
 	}
 }

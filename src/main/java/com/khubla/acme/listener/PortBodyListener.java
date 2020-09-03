@@ -5,6 +5,23 @@ import com.khubla.acme.acmeParser.*;
 public class PortBodyListener extends AbstractListener {
 	@Override
 	public void enterAcmePortBody(AcmePortBodyContext ctx) {
-		throw new RuntimeException("Not Implemented");
+		if (null != ctx.designRule()) {
+			for (final DesignRuleContext designRuleContext : ctx.designRule()) {
+				final DesignRuleListener designRuleListener = new DesignRuleListener();
+				designRuleListener.enterDesignRule(designRuleContext);
+			}
+		}
+		if (null != ctx.acmePropertyDeclaration()) {
+			for (final AcmePropertyDeclarationContext acmePropertyDeclarationContext : ctx.acmePropertyDeclaration()) {
+				final PropertyDeclarationListener propertyDeclarationListener = new PropertyDeclarationListener();
+				propertyDeclarationListener.enterAcmePropertyDeclaration(acmePropertyDeclarationContext);
+			}
+		}
+		if (null != ctx.acmeRepresentationDeclaration()) {
+			for (final AcmeRepresentationDeclarationContext acmeRepresentationDeclarationContext : ctx.acmeRepresentationDeclaration()) {
+				final RepresentationDeclarationListener representationDeclarationListener = new RepresentationDeclarationListener();
+				representationDeclarationListener.enterAcmeRepresentationDeclaration(acmeRepresentationDeclarationContext);
+			}
+		}
 	}
 }

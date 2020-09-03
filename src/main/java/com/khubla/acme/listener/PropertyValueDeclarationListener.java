@@ -14,9 +14,9 @@ public class PropertyValueDeclarationListener extends AbstractListener {
 		} else if (ctx.STRING_LITERAL() != null) {
 			value = ctx.STRING_LITERAL().getText();
 		} else if (ctx.FALSE() != null) {
-			this.value = Boolean.FALSE;
+			value = Boolean.FALSE;
 		} else if (ctx.TRUE() != null) {
-			this.value = Boolean.TRUE;
+			value = Boolean.TRUE;
 		} else if (ctx.acmePropertyRecord() != null) {
 			throw new RuntimeException("Not Implemented");
 		} else if (ctx.acmePropertySequence() != null) {

@@ -6,11 +6,11 @@ public class PropertyBlockEntryListener extends AbstractListener {
 	@Override
 	public void enterAcmePropertyBlockEntry(AcmePropertyBlockEntryContext ctx) {
 		if (null != ctx.acmePropertyTypeRef()) {
-			PropertyTypeRefListener propertyTypeRefListener = new PropertyTypeRefListener();
+			final PropertyTypeRefListener propertyTypeRefListener = new PropertyTypeRefListener();
 			propertyTypeRefListener.enterAcmePropertyTypeRef(ctx.acmePropertyTypeRef());
 		}
 		if (null != ctx.acmePropertyValueDeclaration()) {
-			PropertyValueDeclarationListener propertyValueDeclarationListener = new PropertyValueDeclarationListener();
+			final PropertyValueDeclarationListener propertyValueDeclarationListener = new PropertyValueDeclarationListener();
 			propertyValueDeclarationListener.enterAcmePropertyValueDeclaration(ctx.acmePropertyValueDeclaration());
 		}
 	}

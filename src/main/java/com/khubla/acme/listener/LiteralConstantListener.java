@@ -3,8 +3,10 @@ package com.khubla.acme.listener;
 import com.khubla.acme.*;
 
 public class LiteralConstantListener extends AbstractListener {
+	public String value;
+
 	@Override
 	public void enterLiteralConstant(acmeParser.LiteralConstantContext ctx) {
-		throw new RuntimeException("Not Implemented");
+		value = ctx.getText();
 	}
 }

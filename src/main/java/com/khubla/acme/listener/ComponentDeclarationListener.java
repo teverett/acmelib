@@ -30,7 +30,7 @@ public class ComponentDeclarationListener extends AbstractListener {
 		 * body
 		 */
 		if (null != ctx.acmeComponentBody()) {
-			final ComponentBodyListener componentBodyListener = new ComponentBodyListener();
+			final ComponentBodyListener componentBodyListener = new ComponentBodyListener(component);
 			componentBodyListener.enterAcmeComponentBody(ctx.acmeComponentBody());
 		}
 		/*

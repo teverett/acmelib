@@ -30,7 +30,7 @@ public class PortDeclarationListener extends AbstractListener {
 		 * body
 		 */
 		if (null != ctx.acmePortBody()) {
-			final PortBodyListener portBodyListener = new PortBodyListener();
+			final PortBodyListener portBodyListener = new PortBodyListener(port);
 			portBodyListener.enterAcmePortBody(ctx.acmePortBody());
 		}
 		/*

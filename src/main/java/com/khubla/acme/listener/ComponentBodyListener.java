@@ -1,8 +1,13 @@
 package com.khubla.acme.listener;
 
 import com.khubla.acme.acmeParser.*;
+import com.khubla.acme.domain.*;
 
 public class ComponentBodyListener extends AbstractListener {
+	public ComponentBodyListener(Component component) {
+		super();
+	}
+
 	@Override
 	public void enterAcmeComponentBody(AcmeComponentBodyContext ctx) {
 		if (null != ctx.acmePortDeclaration()) {

@@ -35,6 +35,7 @@ public class TestClientAndServerFam {
 			final Map<String, PortType> portTypes = family.getPortTypes();
 			assertNotNull(portTypes);
 			assertTrue(portTypes.size() == 2);
+			testPortTypes(portTypes);
 			/*
 			 * role types
 			 */
@@ -62,5 +63,12 @@ public class TestClientAndServerFam {
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void testPortTypes(final Map<String, PortType> portTypes) {
+		Iterator<PortType> iter = portTypes.values().iterator();
+		PortType portType1 = iter.next();
+		assertNotNull(portType1);
+		assertTrue(portType1.getDesignRules().size() == 1);
 	}
 }

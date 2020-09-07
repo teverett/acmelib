@@ -39,7 +39,9 @@ public class PropertyDeclarationListener extends AbstractListener {
 		if (null != ctx.acmePropertyBlock()) {
 			final PropertyBlockListener propertyBlockListener = new PropertyBlockListener();
 			propertyBlockListener.enterAcmePropertyBlock(ctx.acmePropertyBlock());
-			throw new RuntimeException("Not Implemented");
+			for (final Property prop : propertyBlockListener.properties) {
+				property.addProperty(prop);
+			}
 		}
 	}
 }

@@ -11,6 +11,12 @@ public class PortType {
 		designRules.add(designRule);
 	}
 
+	public void addProperties(List<Property> props) {
+		for (final Property property : props) {
+			properties.put(property.getName(), property);
+		}
+	}
+
 	public void addProperty(Property property) {
 		properties.put(property.getName(), property);
 	}

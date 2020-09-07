@@ -11,6 +11,7 @@ public class PropertyRecordEntryListener extends AbstractListener {
 		if (null != ctx.identifier()) {
 			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
+			throw new RuntimeException("Not Implemented");
 		}
 		/*
 		 * ref
@@ -18,6 +19,7 @@ public class PropertyRecordEntryListener extends AbstractListener {
 		if (null != ctx.acmePropertyTypeRef()) {
 			final PropertyTypeRefListener propertyTypeRefListener = new PropertyTypeRefListener();
 			propertyTypeRefListener.enterAcmePropertyTypeRef(ctx.acmePropertyTypeRef());
+			throw new RuntimeException("Not Implemented");
 		}
 		/*
 		 * val
@@ -25,6 +27,7 @@ public class PropertyRecordEntryListener extends AbstractListener {
 		if (null != ctx.acmePropertyValueDeclaration()) {
 			final PropertyValueDeclarationListener propertyValueDeclarationListener = new PropertyValueDeclarationListener();
 			propertyValueDeclarationListener.enterAcmePropertyValueDeclaration(ctx.acmePropertyValueDeclaration());
+			throw new RuntimeException("Not Implemented");
 		}
 	}
 }

@@ -10,6 +10,7 @@ public class PropertyRecordListener extends AbstractListener {
 			for (final AcmePropertyRecordEntryContext acmePropertyRecordEntryContext : ctx.acmePropertyRecordEntry()) {
 				final PropertyRecordEntryListener propertyRecordEntryListener = new PropertyRecordEntryListener();
 				propertyRecordEntryListener.enterAcmePropertyRecordEntry(acmePropertyRecordEntryContext);
+				throw new RuntimeException("Not Implemented");
 			}
 		}
 	}

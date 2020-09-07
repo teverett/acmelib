@@ -8,12 +8,14 @@ public class PropertyDeclarationListener extends AbstractListener {
 
 	@Override
 	public void enterAcmePropertyDeclaration(AcmePropertyDeclarationContext ctx) {
+		Property property = new Property();
 		/*
 		 * id
 		 */
 		if (null != ctx.identifier()) {
 			final IdentifierListener identifierListener = new IdentifierListener();
 			identifierListener.enterIdentifier(ctx.identifier());
+			property.setName(identifierListener.identifier);
 		}
 		/*
 		 * type
@@ -21,6 +23,7 @@ public class PropertyDeclarationListener extends AbstractListener {
 		if (null != ctx.acmePropertyTypeRef()) {
 			final PropertyTypeRefListener propertyTypeRefListener = new PropertyTypeRefListener();
 			propertyTypeRefListener.enterAcmePropertyTypeRef(ctx.acmePropertyTypeRef());
+			property.setPropertyType(propertyTypeRefListener.propertyType);
 		}
 		/*
 		 * value
@@ -28,6 +31,7 @@ public class PropertyDeclarationListener extends AbstractListener {
 		if (null != ctx.acmePropertyValueDeclaration()) {
 			final PropertyValueDeclarationListener propertyValueDeclarationListener = new PropertyValueDeclarationListener();
 			propertyValueDeclarationListener.enterAcmePropertyValueDeclaration(ctx.acmePropertyValueDeclaration());
+			property.setValue(propertyValueDeclarationListener.value);
 		}
 		/*
 		 * block
@@ -35,6 +39,7 @@ public class PropertyDeclarationListener extends AbstractListener {
 		if (null != ctx.acmePropertyBlock()) {
 			final PropertyBlockListener propertyBlockListener = new PropertyBlockListener();
 			propertyBlockListener.enterAcmePropertyBlock(ctx.acmePropertyBlock());
+			throw new RuntimeException("Not Implemented");
 		}
 	}
 }

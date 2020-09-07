@@ -21,6 +21,7 @@ public class PropertyRecordFieldDescriptionListener extends AbstractListener {
 		if (null != ctx.acmePropertyTypeRef()) {
 			final PropertyTypeRefListener propertyTypeRefListener = new PropertyTypeRefListener();
 			propertyTypeRefListener.exitAcmePropertyTypeRef(ctx.acmePropertyTypeRef());
+			throw new RuntimeException("Not Implemented");
 		}
 	}
 }

@@ -4,7 +4,7 @@
 	<artifactId>acmelib</artifactId>
 	<packaging>jar</packaging>
 	<name>khubla.com ACME ADL</name>
-	<version>1.14</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<description>A Java Client for ACME ADL</description>
 	<properties>
 		<target.jvm>1.8</target.jvm>

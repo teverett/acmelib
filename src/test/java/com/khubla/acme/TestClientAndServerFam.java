@@ -66,8 +66,8 @@ public class TestClientAndServerFam {
 	}
 
 	private void testPortTypes(final Map<String, PortType> portTypes) {
-		Iterator<PortType> iter = portTypes.values().iterator();
-		PortType portType1 = iter.next();
+		final Iterator<PortType> iter = portTypes.values().iterator();
+		final PortType portType1 = iter.next();
 		assertNotNull(portType1);
 		assertTrue(portType1.getDesignRules().size() == 1);
 	}

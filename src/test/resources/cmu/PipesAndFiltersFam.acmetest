@@ -1,7 +1,5 @@
 /* PipesAndFilters style to represent systems that have
  * dataflow between 
- 
- 
 filters. 
  */ 
 Family PipesAndFiltersFam = {
@@ -51,7 +49,7 @@ Family PipesAndFiltersFam = {
         
         Property function : string;
         
-        Property flowPaths : Set{flowpathRecT} << default : Set{flowpathRecT} = {[
+        Property xaths : Set{flowpathRecT} << default : Set{flowpathRecT} = {[
             fromPt : string = "input"; 
             toPt : string = "output" ]};  >>;
         

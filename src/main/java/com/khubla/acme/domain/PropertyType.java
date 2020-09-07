@@ -2,6 +2,8 @@ package com.khubla.acme.domain;
 
 import java.util.*;
 
+import com.khubla.acme.domain.type.*;
+
 public class PropertyType {
 	private String name;
 
@@ -10,16 +12,7 @@ public class PropertyType {
 	}
 
 	public void setName(List<String> names) {
-		name = new String();
-		boolean first = true;
-		for (final String n : names) {
-			if (first) {
-				first = false;
-			} else {
-				name += ".";
-			}
-			name += n;
-		}
+		name = AbstractType.buildName(names);
 	}
 
 	public void setName(String name) {

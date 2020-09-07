@@ -9,14 +9,10 @@ public class PropertyType {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public void setName(List<String> names) {
 		name = new String();
 		boolean first = true;
-		for (String n : names) {
+		for (final String n : names) {
 			if (first) {
 				first = false;
 			} else {
@@ -24,5 +20,9 @@ public class PropertyType {
 			}
 			name += n;
 		}
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

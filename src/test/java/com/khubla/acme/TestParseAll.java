@@ -10,7 +10,7 @@ import org.junit.*;
 import com.khubla.acme.domain.*;
 
 public class TestParseAll {
-	private final String[] files = { "ClientAndServerFam.acmetest", "LayeredFam.acmetest", "MDSFam.acmetest", "MDSSystem.acmetest", "PipesAndFiltersFam.acmetest", "PubSubFam.acmetest",
+	private final String[] files = { "LayeredFam.acmetest", "ClientAndServerFam.acmetest", "MDSFam.acmetest", "MDSSystem.acmetest", "PipesAndFiltersFam.acmetest", "PubSubFam.acmetest",
 			"SabPerformanceFamily.acmetest", "SharedDataFam.acmetest", "ThreeTieredFam.acmetest", "TieredFam.acmetest", "propertyUnification.acmetest", "test1.acmetest" };
 
 	@Test

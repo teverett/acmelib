@@ -8,7 +8,7 @@ public class PropertyDeclarationListener extends AbstractListener {
 
 	@Override
 	public void enterAcmePropertyDeclaration(AcmePropertyDeclarationContext ctx) {
-		final Property property = new Property();
+		property = new Property();
 		/*
 		 * id
 		 */

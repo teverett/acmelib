@@ -17,7 +17,7 @@ public class PropertyTypeRefListener extends AbstractListener {
 		if (null != ctx.acmePropertyTypeStructure()) {
 			final PropertyTypeStructureListener propertyTypeStructureListener = new PropertyTypeStructureListener();
 			propertyTypeStructureListener.enterAcmePropertyTypeStructure(ctx.acmePropertyTypeStructure());
-			throw new RuntimeException("Not Implemented");
+			propertyType.setName(propertyTypeStructureListener.type);
 		}
 	}
 }

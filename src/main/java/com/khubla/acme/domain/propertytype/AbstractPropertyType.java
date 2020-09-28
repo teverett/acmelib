@@ -1,8 +1,8 @@
-package com.khubla.acme.domain.type;
+package com.khubla.acme.domain.propertytype;
 
 import java.util.*;
 
-public class AbstractType implements Type {
+public class AbstractPropertyType implements PropertyType {
 	public static String buildName(List<String> names) {
 		String ret = new String();
 		boolean first = true;
@@ -19,7 +19,7 @@ public class AbstractType implements Type {
 
 	private final String name;
 
-	public AbstractType(String name) {
+	public AbstractPropertyType(String name) {
 		super();
 		this.name = name;
 	}

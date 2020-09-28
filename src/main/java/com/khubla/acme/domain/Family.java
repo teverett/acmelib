@@ -2,6 +2,8 @@ package com.khubla.acme.domain;
 
 import java.util.*;
 
+import com.khubla.acme.domain.propertytype.*;
+
 public class Family {
 	private String name;
 	private Attachments attachments;

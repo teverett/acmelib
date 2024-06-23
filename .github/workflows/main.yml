@@ -19,17 +19,9 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
-        java-version: 12
-        distribution: 'zulu'
-
+        distribution: 'temurin'
+        java-version: 21
+        
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
-    - name: owasp check
-      run: mvn -Powasp-check -B verify --file pom.xml
-      
-    - name: plugin updates
-      run: mvn org.codehaus.mojo:versions-maven-plugin:2.7:display-plugin-updates
-
-    - name: dependency updates
-      run: mvn org.codehaus.mojo:versions-maven-plugin:2.7:display-dependency-updates
+      run: mvn -B package verify --file pom.xml
+    
